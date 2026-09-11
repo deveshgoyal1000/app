@@ -1,12 +1,14 @@
 import React from 'react';
+import FastToast from '../components/FastToast';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Platform, StatusBar } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { ToastAndroid, Alert } from 'react-native';
 
 const PURPLE = '#5B2D8E';
 
 // Reusable menu item component
-const MenuItem = ({ icon, title, subtitle, badge }: any) => (
-  <TouchableOpacity style={styles.menuItem}>
+const MenuItem = ({ icon, title, subtitle, badge, onPress }: any) => (
+  <TouchableOpacity style={styles.menuItem} onPress={onPress}>
     <View style={styles.menuItemLeft}>
       <Ionicons name={icon} size={22} color="#56328c" style={styles.menuIcon} />
       <View>
@@ -25,7 +27,15 @@ const MenuItem = ({ icon, title, subtitle, badge }: any) => (
   </TouchableOpacity>
 );
 
+
+
 export default function FundsScreen() {
+  const fastToastRef = React.useRef<any>(null);
+
+  const showMarketClosed = () => {
+    fastToastRef.current?.show(`Market is currently closed.\nPlease trade between 9:15 AM - 3:30 PM`);
+  };
+
 return (
     <View style={styles.screen}>
             {/* Announcement Banner */}
@@ -49,7 +59,7 @@ return (
       <ScrollView style={styles.container}>
         
         {/* Profile Header Section */}
-        <TouchableOpacity style={styles.profileHeader}>
+        <TouchableOpacity style={styles.profileHeader} onPress={showMarketClosed}>
           <View style={styles.profileAvatarLarge}>
             <Text style={styles.profileAvatarText}>PK</Text>
           </View>
@@ -66,7 +76,7 @@ return (
         <View style={styles.fundsSection}>
           <View style={styles.fundsHeaderRow}>
             <Text style={styles.fundsTitle}>Securities Wallet</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={showMarketClosed}>
               <Text style={styles.historyText}>History</Text>
             </TouchableOpacity>
           </View>
@@ -87,10 +97,10 @@ return (
             </View>
 
             <View style={styles.buttonRow}>
-              <TouchableOpacity style={[styles.button, styles.withdrawBtn]}>
+              <TouchableOpacity style={[styles.button, styles.withdrawBtn]} onPress={showMarketClosed}>
                 <Text style={styles.withdrawBtnText}>Withdraw</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={[styles.button, styles.addBtn]}>
+              <TouchableOpacity style={[styles.button, styles.addBtn]} onPress={showMarketClosed}>
                 <Text style={styles.addBtnText}>Add Funds</Text>
               </TouchableOpacity>
             </View>
@@ -101,8 +111,8 @@ return (
 
         {/* Menu Items Section */}
         <View style={styles.menuContainer}>
-          <MenuItem icon="person-outline" title="My Account" subtitle="Profile, Bank Details, Segments" />
-          <MenuItem icon="document-text-outline" title="Reports & Corporate Actions" subtitle="Ledger, P&L, Tax, Dividends" />
+          <MenuItem icon="person-outline" title="My Account" subtitle="Profile, Bank Details, Segments" onPress={showMarketClosed} />
+          <MenuItem icon="document-text-outline" title="Reports & Corporate Actions" subtitle="Ledger, P&L, Tax, Dividends" onPress={showMarketClosed} />
           <MenuItem icon="gift-outline" title="Refer & Earn" badge="Reward" />
           <MenuItem icon="settings-outline" title="Settings" subtitle="Dark mode, Notifications" />
           <MenuItem icon="help-buoy-outline" title="Help & Support" subtitle="FAQs, Raise a ticket" />
@@ -116,6 +126,7 @@ return (
         
         <View style={{ height: 40 }} />
       </ScrollView>
+      <FastToast ref={fastToastRef} bottomOffset={100} />
     </View>
   );
 }

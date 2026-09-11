@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Modal, Dimensions, PanResponder } from 'react-native';
+import FastToast from './FastToast';
+import { View, Text, StyleSheet, TouchableOpacity, Modal, Dimensions, PanResponder, Alert, ToastAndroid, Platform, Animated } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Svg, { Defs, LinearGradient, Stop, Path, Line, Circle } from 'react-native-svg';
 
@@ -187,8 +188,9 @@ export default function SharedChartModal({
   const [chartData, setChartData] = useState<{ c: number; time: string }[]>([]);
   const [chartLoading, setChartLoading] = useState(false);
   const [chartRange, setChartRange] = useState('1Y');
+  const fastToastRef = React.useRef<any>(null);
   const [chartLayout, setChartLayout] = useState({ width: SCREEN_W, height: 320 });
-
+  
   useEffect(() => {
     if (stock) {
       setChartRange('1Y');
@@ -288,6 +290,11 @@ export default function SharedChartModal({
       });
   }, [stock, chartRange]);
 
+    const showMarketClosed = () => {
+    fastToastRef.current?.show(`Market is currently closed.
+Please trade between 9:15 AM - 3:30 PM`);
+  };
+
   if (!stock) return null;
 
   const modalIsPositive = chartData.length > 0 ? chartData[chartData.length - 1].c >= chartData[0].c : (stock.ltp >= (stock.avg ?? stock.prevClose));
@@ -340,16 +347,18 @@ export default function SharedChartModal({
             ) : null}
           </View>
 
+
           <View style={styles.chartBottomBar}>
-            <TouchableOpacity style={[styles.chartActionBtn, { backgroundColor: '#0B8062' }]}>
+            <TouchableOpacity style={[styles.chartActionBtn, { backgroundColor: '#0B8062' }]} onPress={() => showMarketClosed()}>
               <Text style={{ color: '#fff', fontFamily: 'Inter_600SemiBold' }}>BUY</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.chartActionBtn, { backgroundColor: '#DA5329' }]}>
+            <TouchableOpacity style={[styles.chartActionBtn, { backgroundColor: '#DA5329' }]} onPress={() => showMarketClosed()}>
               <Text style={{ color: '#fff', fontFamily: 'Inter_600SemiBold' }}>SELL</Text>
             </TouchableOpacity>
           </View>
+          <FastToast ref={fastToastRef} bottomOffset={80} />
         </View>
-      </View>
+              </View>
     </Modal>
   );
 }

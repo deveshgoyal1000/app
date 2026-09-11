@@ -1,3 +1,4 @@
+import FastToast from '../components/FastToast';
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, TouchableOpacity,
@@ -5,6 +6,7 @@ import {
   PanResponder, Dimensions, StatusBar as RNStatusBar
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { ToastAndroid, Platform, Alert } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Path, Line, Circle, Defs, LinearGradient, Stop } from 'react-native-svg';
 
@@ -249,6 +251,9 @@ function StockChart({
 
 // ─── Main Screen ──────────────────────────────────────────────────────────
 export default function HoldingsScreen() {
+  const toastMainRef = React.useRef<any>(null);
+  const toastSheetRef = React.useRef<any>(null);
+  const toastChartRef = React.useRef<any>(null);
   const [activeTab, setActiveTab] = useState('Stocks');
   const [selectedStock, setSelectedStock] = useState<any>(null);
   const [chartStock, setChartStock] = useState<any>(null);
@@ -257,7 +262,7 @@ export default function HoldingsScreen() {
   const [chartRange, setChartRange] = useState('1Y');
   const [chartLayout, setChartLayout] = useState({ width: SCREEN_W, height: 320 });
   const insets = useSafeAreaInsets();
-
+  
               const rawHoldings = [
     { id: '1', name: 'RAJESHEXPO', qty: 50,  avg: 540.00,  ltp: 220.00,  prevClose: 215.00 },
     { id: '2', name: 'HDFCBANK',   qty: 80,  avg: 1450.00, ltp: 1125.00, prevClose: 1115.00 },
@@ -417,6 +422,14 @@ export default function HoldingsScreen() {
   const modalIsPositive = chartData.length > 0 ? chartData[chartData.length - 1].c >= chartData[0].c : (chartStock ? chartStock.ltp >= chartStock.avg : true);
   const modalChartColor = modalIsPositive ? '#0B8062' : '#DA5329';
 
+
+    const showMarketClosed = () => {
+    const msg = `Market is currently closed.
+Please trade between 9:15 AM - 3:30 PM`;
+    toastMainRef.current?.show(msg);
+    toastSheetRef.current?.show(msg);
+    toastChartRef.current?.show(msg);
+  };
   return (
     <View style={styles.screen}>
 
@@ -575,10 +588,10 @@ export default function HoldingsScreen() {
                     ))}
                   </View>
                   <View style={styles.actionRow}>
-                    <TouchableOpacity style={[styles.actionBtn, { backgroundColor: GREEN }]}>
+                    <TouchableOpacity style={[styles.actionBtn, { backgroundColor: GREEN }]} onPress={showMarketClosed}>
                       <Text style={styles.actionBtnText}>Buy</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.actionBtn, { backgroundColor: RED }]}>
+                    <TouchableOpacity style={[styles.actionBtn, { backgroundColor: RED }]} onPress={showMarketClosed}>
                       <Text style={styles.actionBtnText}>Sell</Text>
                     </TouchableOpacity>
                   </View>
@@ -594,7 +607,8 @@ export default function HoldingsScreen() {
               <View style={{ height: 24 }} />
             </View>
           </TouchableWithoutFeedback>
-        </TouchableOpacity>
+          <FastToast ref={toastSheetRef} bottomOffset={200} />
+          </TouchableOpacity>
       </Modal>
 
       {/* ── Full Screen Chart Modal ── */}
@@ -661,17 +675,19 @@ export default function HoldingsScreen() {
               </View>
 
               <View style={styles.chartBottomBar}>
-                <TouchableOpacity style={[styles.chartActionBtn, { backgroundColor: GREEN }]}>
+                <TouchableOpacity style={[styles.chartActionBtn, { backgroundColor: GREEN }]} onPress={showMarketClosed}>
                   <Text style={styles.actionBtnText}>Buy</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={[styles.chartActionBtn, { backgroundColor: RED }]}>
+                <TouchableOpacity style={[styles.chartActionBtn, { backgroundColor: RED }]} onPress={showMarketClosed}>
                   <Text style={styles.actionBtnText}>Sell</Text>
                 </TouchableOpacity>
               </View>
             </>
           )}
-        </View>
-      </Modal>
+          <FastToast ref={toastChartRef} bottomOffset={80} />
+          </View>
+        </Modal>
+        <FastToast ref={toastMainRef} bottomOffset={100} />
     </View>
   );
 }
