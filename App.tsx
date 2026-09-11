@@ -55,8 +55,8 @@ function MainApp() {
   const tabHeight = 50 + safeBottom;
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#ffffff', paddingTop: insets.top }}>
-      <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent={true} />
+    <View style={{ flex: 1, backgroundColor: '#ffffff', /* no padding */ }}>
+      <StatusBar barStyle="dark-content" backgroundColor="#ffffff" translucent={false} />
       
       {/* Absolute top safe area block explicitly colored Teal */}
       <NavigationContainer>
@@ -104,15 +104,15 @@ export default function App() {
 
   if (showSplash) {
     return (
-      <View style={{ flex: 1, backgroundColor: '#ffffff', justifyContent: 'center', alignItems: 'center', paddingTop: 40 }}>
-        <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent={true} />
+      <View style={{ flex: 1, backgroundColor: '#ffffff', justifyContent: 'center', alignItems: 'center', /* no padding */ }}>
+        <StatusBar barStyle="dark-content" backgroundColor="#ffffff" translucent={false} />
         <CustomSplashScreen onFinish={() => setShowSplash(false)} />
       </View>
     );
   }
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <GestureHandlerRootView style={{ flex: 1, backgroundColor: '#ffffff' }}>
       <SafeAreaProvider>
         <MainApp />
       </SafeAreaProvider>
