@@ -7,7 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
-import { SafeAreaProvider, SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useFonts, Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold } from '@expo-google-fonts/inter';
 
 import WatchlistScreen from './src/screens/WatchlistScreen';
@@ -23,6 +23,11 @@ export const FONT = {
   semiBold: 'Inter_600SemiBold',
   bold: 'Inter_700Bold',
 };
+
+function SafeAreaInsetsBlock() {
+  const insets = useSafeAreaInsets();
+  return <View style={{ height: Math.max(insets.top, 20), backgroundColor: '#ffffff', width: '100%', zIndex: 99999 }} />;
+}
 
 function CustomSplashScreen({ onFinish }: { onFinish: () => void }) {
   const scaleAnim = useRef(new Animated.Value(0.4)).current;
@@ -56,8 +61,10 @@ function MainApp() {
   const tabHeight = 50 + safeBottom;
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#ffffff' }}>
-      <StatusBar style="dark" backgroundColor="#ffffff" translucent={false} />
+    <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
+      <StatusBar style="dark" backgroundColor="transparent" />
+      {/* Explicitly draw a solid white block exactly the height of the phone's hardware notch */}
+      <SafeAreaInsetsBlock />
       
       {/* Absolute top safe area block explicitly colored Teal */}
       <NavigationContainer>
@@ -91,7 +98,7 @@ function MainApp() {
           <Tab.Screen name="Account" component={FundsScreen} />
         </Tab.Navigator>
       </NavigationContainer>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -106,10 +113,13 @@ export default function App() {
   if (showSplash) {
     return (
       <SafeAreaProvider>
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#ffffff', justifyContent: 'center', alignItems: 'center' }}>
-          <StatusBar style="dark" backgroundColor="#ffffff" translucent={false} />
-          <CustomSplashScreen onFinish={() => setShowSplash(false)} />
-        </SafeAreaView>
+        <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
+          <StatusBar style="dark" backgroundColor="transparent" />
+          <SafeAreaInsetsBlock />
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <CustomSplashScreen onFinish={() => setShowSplash(false)} />
+          </View>
+        </View>
       </SafeAreaProvider>
     );
   }
@@ -127,4 +137,3 @@ const styles = StyleSheet.create({
   splashContainer: { justifyContent: 'center', alignItems: 'center' },
   splashImage: { width: 180, height: 180, borderRadius: 20 }
 });
-
