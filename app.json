@@ -11,9 +11,9 @@
     },
     "android": {
       "softwareKeyboardLayoutMode": "pan",
-      "statusBarStyle": "dark",
       "statusBar": {
-        "backgroundColor": "#ffffff"
+        "barStyle": "dark-content",
+        "backgroundColor": "#FFFFFF"
       },
       "package": "com.upstoxapp.clone",
       "predictiveBackGestureEnabled": false
@@ -29,6 +29,9 @@
     "owner": "deveshgoyal",
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "splash": {
+      "backgroundColor": "#ffffff"
+    }
   }
 }

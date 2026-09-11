@@ -55,7 +55,7 @@ function MainApp() {
 
   return (
     <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
-      <StatusBar barStyle="dark-content" translucent={false} backgroundColor="#ffffff" />
+      <StatusBar barStyle="dark-content" translucent={true} backgroundColor="transparent" />
       
       {/* Absolute top safe area block explicitly colored Teal */}
       <NavigationContainer>
@@ -104,7 +104,7 @@ export default function App() {
   if (showSplash) {
     return (
       <View style={{ flex: 1, backgroundColor: '#ffffff', justifyContent: 'center', alignItems: 'center' }}>
-        <StatusBar barStyle="dark-content" translucent={false} backgroundColor="#ffffff" />
+        <StatusBar barStyle="dark-content" translucent={true} backgroundColor="transparent" />
         <CustomSplashScreen onFinish={() => setShowSplash(false)} />
       </View>
     );
