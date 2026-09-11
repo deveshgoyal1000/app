@@ -1,295 +1,175 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, SafeAreaView, Platform, StatusBar, Image } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, Platform, StatusBar } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+
+const PURPLE = '#5B2D8E';
+const GREEN = '#0B8062';
+const RED = '#DA5329';
 
 const stocksData = require('../../data/stocks.json');
 
 export default function WatchlistScreen() {
-  const [logoFailed, setLogoFailed] = useState(false);
-
-  const renderItem = ({ item }: { item: any }) => (
-    <TouchableOpacity style={styles.stockRow}>
-      <View style={styles.leftCol}>
-        <Text style={styles.symbolText}>{item.symbol}</Text>
-        <Text style={styles.exchangeText}>{item.exchange}  |  EQ</Text>
-      </View>
-      <View style={styles.rightCol}>
-        <View style={styles.priceContainer}>
-          <Text style={[styles.priceText, { color: item.isUp ? '#1DB954' : '#E53935' }]}>
-            {item.price.toFixed(2)}
-          </Text>
+  const insets = useSafeAreaInsets();
+return (
+    <View style={styles.screen}>
+      {/* Announcement Banner */}
+      <TouchableOpacity style={[styles.holidayBanner, { paddingTop: insets.top + 12 }]}>
+        <Ionicons name="information-circle" size={20} color="#fff" style={{ marginTop: 2, marginRight: 10 }} />
+        <View style={{ flex: 1 }}>
+          <Text style={styles.holidayBannerText}>14 Sept is a trading holiday on account of Ganesh Chaturthi</Text>
         </View>
-        <Text style={[styles.changeText, { color: '#888' }]}>
-          {item.change > 0 ? '+' : ''}{item.change.toFixed(2)} ({item.isUp ? '+' : ''}{item.changePercentage.toFixed(2)}%)
-        </Text>
-      </View>
-    </TouchableOpacity>
-  );
+        <Text style={styles.knowMoreText}>Know more</Text>
+      </TouchableOpacity>
 
-  return (
-    <SafeAreaView style={styles.safeArea}>
-      <View style={styles.container}>
-        
-        {/* Top Header */}
-        <View style={styles.topAppBar}>
-          <TouchableOpacity style={styles.profileAvatar}>
-            <Text style={styles.profileText}>JD</Text>
-          </TouchableOpacity>
-          
-          <View style={styles.logoContainer}>
-            {!logoFailed ? (
-              <Image 
-                source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/c/ca/Upstox_Logo.png' }} 
-                style={styles.logoImage} 
-                resizeMode="contain"
-                onError={() => setLogoFailed(true)}
-              />
-            ) : (
-              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                 <Text style={{ fontSize: 24, fontWeight: '900', color: '#56328c', letterSpacing: -1 }}>upstox</Text>
-                 <Ionicons name="arrow-up-circle" size={20} color="#56328c" style={{ marginLeft: 2, marginTop: -8 }} />
-              </View>
-            )}
+      {/* Purple Header */}
+      <View style={styles.header}>
+        <View>
+          <View style={styles.headerTitleRow}>
+            <Text style={styles.headerTitle}>My List</Text>
+            <Ionicons name="chevron-down" size={18} color="#fff" style={{ marginLeft: 4, marginTop: 2 }} />
           </View>
-          
+          <Text style={styles.headerSub}>20 scrips  -  List by you</Text>
+        </View>
+        <View style={styles.headerRight}>
           <TouchableOpacity style={styles.iconBtn}>
-            <Ionicons name="search-outline" size={24} color="#333" />
+            <Ionicons name="options-outline" size={22} color="#fff" />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.iconBtn}>
+            <Ionicons name="add-circle-outline" size={24} color="#fff" />
           </TouchableOpacity>
         </View>
-
-        {/* Top Market Indices */}
-        <View style={styles.indicesContainer}>
-          <View style={styles.indexBox}>
-            <Text style={styles.indexName}>NIFTY 50</Text>
-            <View style={styles.indexPriceRow}>
-              <Text style={styles.indexPrice}>19,542.65</Text>
-              <Text style={styles.indexChange}>+12.50 (0.06%)</Text>
-            </View>
-          </View>
-          <View style={styles.divider} />
-          <View style={styles.indexBox}>
-            <Text style={styles.indexName}>SENSEX</Text>
-            <View style={styles.indexPriceRow}>
-              <Text style={styles.indexPrice}>65,344.17</Text>
-              <Text style={styles.indexChange}>+22.71 (0.03%)</Text>
-            </View>
-          </View>
-        </View>
-
-        {/* Watchlist Header */}
-        <View style={styles.watchlistHeader}>
-          <TouchableOpacity style={styles.watchlistSelector}>
-            <Text style={styles.watchlistTitle}>My List</Text>
-            <Ionicons name="chevron-down" size={18} color="#333" style={{ marginLeft: 4 }} />
-          </TouchableOpacity>
-          <View style={styles.headerIcons}>
-            <TouchableOpacity style={styles.iconBtn}>
-              <Ionicons name="options-outline" size={22} color="#333" />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.iconBtn}>
-              <Ionicons name="add" size={26} color="#333" />
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        {/* Column Labels */}
-        <View style={styles.columnHeaders}>
-          <Text style={styles.columnHeaderLeft}>Symbol</Text>
-          <Text style={styles.columnHeaderRight}>LTP</Text>
-        </View>
-
-        {/* Stock List */}
-        <FlatList
-          data={stocksData}
-          keyExtractor={(item) => item.id}
-          renderItem={renderItem}
-          showsVerticalScrollIndicator={false}
-          ItemSeparatorComponent={() => <View style={styles.separator} />}
-          contentContainerStyle={{ paddingBottom: 20 }}
-        />
       </View>
-    </SafeAreaView>
+
+      {/* NIFTY / BANK Bar */}
+      <View style={styles.indicesBar}>
+        <View style={styles.indexBox}>
+          <Text style={styles.indexNameRow}>NIFTY 50</Text>
+          <View style={styles.indexValues}>
+            <Text style={styles.indexPrice}>19,784.10</Text>
+            <Text style={styles.indexChange}>+41.75 (0.21%)</Text>
+          </View>
+        </View>
+        <View style={styles.indexDivider} />
+        <View style={styles.indexBox}>
+          <Text style={styles.indexNameRow}>NIFTY{'\n'}BANK</Text>
+          <View style={styles.indexValues}>
+            <Text style={styles.indexPrice}>44,980.65</Text>
+            <Text style={styles.indexChange}>+356.80 (0.80%)</Text>
+          </View>
+        </View>
+        <TouchableOpacity style={styles.sliderIcon}>
+          <Ionicons name="chevron-down" size={20} color="#111" />
+        </TouchableOpacity>
+      </View>
+
+      {/* Column Headers */}
+      <View style={styles.colHeaders}>
+        <Text style={styles.colLeft}>Symbol</Text>
+        <Text style={styles.colRight}>LTP</Text>
+      </View>
+
+      {/* Stock List */}
+      <FlatList
+        data={stocksData}
+        keyExtractor={(item) => item.id}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: 24 }}
+        ItemSeparatorComponent={() => <View style={styles.separator} />}
+        renderItem={({ item }) => (
+          <TouchableOpacity style={styles.row}>
+            <View>
+              <Text style={styles.symbol}>{item.symbol}</Text>
+              <Text style={styles.exchange}>{item.exchange}  EQ</Text>
+            </View>
+            <View style={{ alignItems: 'flex-end' }}>
+              <Text style={[styles.price, { color: item.isUp ? GREEN : RED }]}>
+                {item.price.toFixed(2)}
+              </Text>
+              <Text style={[styles.change, { color: item.isUp ? GREEN : RED }]}>
+                {item.change > 0 ? '+' : ''}{item.change.toFixed(2)} ({item.isUp ? '+' : ''}{item.changePercentage.toFixed(2)}%)
+              </Text>
+            </View>
+          </TouchableOpacity>
+        )}
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-  },
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    // Max width for web to make it look like a mobile app in the center
-    maxWidth: Platform.OS === 'web' ? 480 : '100%',
-    width: '100%',
-    alignSelf: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.1,
-    shadowRadius: 10,
-    elevation: 5,
-  },
-  topAppBar: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+  holidayBanner: { backgroundColor: '#00A3A1', paddingVertical: 12, paddingHorizontal: 16, flexDirection: 'row', alignItems: 'flex-start' },
+  holidayBannerText: { color: '#fff', fontSize: 13, fontFamily: 'Inter_500Medium', lineHeight: 18 },
+  knowMoreText: { color: '#fff', fontSize: 13, fontFamily: 'Inter_700Bold', marginLeft: 10, marginTop: 2 },screen: { flex: 1, backgroundColor: '#fff' },
+  header: {
+    backgroundColor: PURPLE,
+    paddingTop: 12,
+    paddingBottom: 14,
     paddingHorizontal: 16,
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0',
-    backgroundColor: '#fff',
-  },
-  profileAvatar: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: '#56328c',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  profileText: {
-    color: '#fff',
-    fontSize: 12,
-    fontWeight: 'bold',
-  },
-  logoContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 30,
-  },
-  logoImage: {
-    width: 120,
-    height: 30,
-  },
-  indicesContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0',
+    justifyContent: 'space-between',
+  },
+  headerTitleRow: { flexDirection: 'row', alignItems: 'center' },
+  headerTitle: { color: '#fff', fontSize: 20, fontFamily: 'Inter_500Medium' },
+  headerSub: { color: 'rgba(255,255,255,0.75)', fontSize: 12, marginTop: 2, fontFamily: 'Inter_400Regular' },
+  headerRight: { flexDirection: 'row', alignItems: 'center' },
+  iconBtn: { marginLeft: 18 },
+  indicesBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: '#fafafa',
-  },
-  indexBox: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  divider: {
-    width: 1,
-    height: 30,
-    backgroundColor: '#e0e0e0',
-  },
-  indexName: {
-    fontSize: 11,
-    color: '#666',
-    fontWeight: '600',
-    marginBottom: 4,
-    letterSpacing: 0.5,
-  },
-  indexPriceRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  indexPrice: {
-    fontSize: 13,
-    fontWeight: 'bold',
-    color: '#333',
-    marginRight: 6,
-  },
-  indexChange: {
-    fontSize: 12,
-    color: '#1DB954',
-    fontWeight: '600',
-  },
-  watchlistHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 16,
-    backgroundColor: '#fff',
-  },
-  watchlistSelector: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  watchlistTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#222',
-  },
-  headerIcons: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  iconBtn: {
-    marginLeft: 20,
-  },
-  columnHeaders: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingVertical: 6,
-    backgroundColor: '#f9f9f9',
-    borderTopWidth: 1,
     borderBottomWidth: 1,
-    borderColor: '#f0f0f0',
+    borderBottomColor: '#eee',
+    paddingVertical: 12,
+    paddingHorizontal: 12,
   },
-  columnHeaderLeft: {
-    fontSize: 12,
-    color: '#888',
-    fontWeight: '600',
-  },
-  columnHeaderRight: {
-    fontSize: 12,
-    color: '#888',
-    fontWeight: '600',
-  },
-  stockRow: {
+  indexBox: { flex: 1, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 4 },
+  indexNameRow: { fontSize: 11, color: '#262626', fontFamily: 'Inter_600SemiBold', lineHeight: 14 },
+  indexValues: { alignItems: 'flex-end' },
+  indexPrice: { fontSize: 13, fontFamily: 'Inter_600SemiBold', color: GREEN },
+  indexChange: { fontSize: 11, color: '#666', fontFamily: 'Inter_400Regular', marginTop: 2 },
+  indexDivider: { width: 1, height: 32, backgroundColor: '#e0e0e0', marginHorizontal: 6 },
+  sliderIcon: { paddingLeft: 8 },
+  colHeaders: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical: 14,
+    paddingHorizontal: 16,
+    paddingVertical: 7,
+    backgroundColor: '#f5f5f5',
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+  },
+  colLeft: { fontSize: 12, color: '#888', fontFamily: 'Inter_600SemiBold' },
+  colRight: { fontSize: 12, color: '#888', fontFamily: 'Inter_600SemiBold' },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 12,
     paddingHorizontal: 16,
     backgroundColor: '#fff',
   },
-  leftCol: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-  },
-  symbolText: {
-    fontSize: 15,
-    fontWeight: '700',
-    color: '#222',
-    marginBottom: 4,
-  },
-  exchangeText: {
-    fontSize: 11,
-    color: '#999',
-    fontWeight: '500',
-  },
-  rightCol: {
-    flexDirection: 'column',
-    alignItems: 'flex-end',
-    justifyContent: 'center',
-  },
-  priceContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 4,
-  },
-  priceText: {
-    fontSize: 15,
-    fontWeight: '700',
-  },
-  changeText: {
-    fontSize: 11,
-    fontWeight: '500',
-  },
-  separator: {
-    height: 1,
-    backgroundColor: '#f0f0f0',
-    marginLeft: 16,
-  },
+  symbol: { fontSize: 14, fontFamily: 'Inter_500Medium', color: '#262626', marginBottom: 3 },
+  exchange: { fontSize: 11, color: '#888', fontFamily: 'Inter_400Regular' },
+  price: { fontSize: 14, fontFamily: 'Inter_500Medium', marginBottom: 3 },
+  change: { fontSize: 11, fontFamily: 'Inter_400Regular' },
+  separator: { height: 1, backgroundColor: '#f2f2f2', marginLeft: 16 },
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

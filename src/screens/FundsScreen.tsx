@@ -1,6 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, SafeAreaView, Platform, StatusBar } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Platform, StatusBar } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+
+const PURPLE = '#5B2D8E';
 
 // Reusable menu item component
 const MenuItem = ({ icon, title, subtitle, badge }: any) => (
@@ -24,18 +27,37 @@ const MenuItem = ({ icon, title, subtitle, badge }: any) => (
 );
 
 export default function FundsScreen() {
-  return (
-    <SafeAreaView style={styles.safeArea}>
+  const insets = useSafeAreaInsets();
+return (
+    <View style={styles.screen}>
+      {/* Announcement Banner */}
+      <TouchableOpacity style={[styles.holidayBanner, { paddingTop: insets.top + 12 }]}>
+        <Ionicons name="information-circle" size={20} color="#fff" style={{ marginTop: 2, marginRight: 10 }} />
+        <View style={{ flex: 1 }}>
+          <Text style={styles.holidayBannerText}>14 Sept is a trading holiday on account of Ganesh Chaturthi</Text>
+        </View>
+        <Text style={styles.knowMoreText}>Know more</Text>
+      </TouchableOpacity>
+      
+      {/* Purple Header */}
+      <View style={styles.header}>
+        <Text style={styles.headerTitle}>Account</Text>
+        <TouchableOpacity style={styles.iconBtn}>
+          <Ionicons name="settings-outline" size={22} color="#fff" />
+        </TouchableOpacity>
+      </View>
+
+            
       <ScrollView style={styles.container}>
         
         {/* Profile Header Section */}
         <TouchableOpacity style={styles.profileHeader}>
           <View style={styles.profileAvatarLarge}>
-            <Text style={styles.profileAvatarText}>JD</Text>
+            <Text style={styles.profileAvatarText}>PK</Text>
           </View>
           <View style={styles.profileInfo}>
-            <Text style={styles.profileName}>John Doe</Text>
-            <Text style={styles.profileId}>UCC: 1A2B3C</Text>
+            <Text style={styles.profileName}>Pulkit kumar</Text>
+            <Text style={styles.profileId}>UCC: 1AJUEWDY7H</Text>
           </View>
           <Ionicons name="chevron-forward" size={20} color="#888" />
         </TouchableOpacity>
@@ -53,7 +75,7 @@ export default function FundsScreen() {
 
           <View style={styles.card}>
             <Text style={styles.label}>Available to trade</Text>
-            <Text style={styles.balance}>₹ 50,000.00</Text>
+            <Text style={styles.balance}>₹ 0.00</Text>
             
             <View style={styles.cardDivider} />
             
@@ -63,7 +85,7 @@ export default function FundsScreen() {
             </View>
             <View style={styles.row}>
               <Text style={styles.subLabel}>Total Balance</Text>
-              <Text style={styles.subValue}>₹ 50,000.00</Text>
+              <Text style={styles.subValue}>₹ 0.00</Text>
             </View>
 
             <View style={styles.buttonRow}>
@@ -90,33 +112,37 @@ export default function FundsScreen() {
 
         {/* Logout Button */}
         <TouchableOpacity style={styles.logoutButton}>
-          <Ionicons name="log-out-outline" size={20} color="#E53935" />
+          <Ionicons name="log-out-outline" size={20} color="#DA5329" />
           <Text style={styles.logoutText}>Logout</Text>
         </TouchableOpacity>
         
         <View style={{ height: 40 }} />
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  safeArea: {
+  holidayBanner: { backgroundColor: '#00A3A1', paddingVertical: 12, paddingHorizontal: 16, flexDirection: 'row', alignItems: 'flex-start' },
+  holidayBannerText: { color: '#fff', fontSize: 13, fontFamily: 'Inter_500Medium', lineHeight: 18 },
+  knowMoreText: { color: '#fff', fontSize: 13, fontFamily: 'Inter_700Bold', marginLeft: 10, marginTop: 2 },screen: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
+  header: {
+    backgroundColor: PURPLE,
+    paddingTop: 12,
+    paddingBottom: 14,
+    paddingHorizontal: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  headerTitle: { color: '#fff', fontSize: 20, fontFamily: 'Inter_500Medium' },
+  iconBtn: { marginLeft: 16 },
   container: {
     flex: 1,
     backgroundColor: '#f9f9f9',
-    maxWidth: Platform.OS === 'web' ? 480 : '100%',
-    width: '100%',
-    alignSelf: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.1,
-    shadowRadius: 10,
-    elevation: 5,
   },
   profileHeader: {
     flexDirection: 'row',
@@ -134,22 +160,23 @@ const styles = StyleSheet.create({
   },
   profileAvatarText: {
     color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 12,
+    fontFamily: 'Inter_500Medium',
   },
   profileInfo: {
     flex: 1,
     marginLeft: 16,
   },
   profileName: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333',
+    fontSize: 12,
+    fontFamily: 'Inter_500Medium',
+    color: '#262626',
     marginBottom: 2,
   },
   profileId: {
     fontSize: 12,
     color: '#888',
+    fontFamily: 'Inter_400Regular',
   },
   divider: {
     height: 8,
@@ -158,7 +185,7 @@ const styles = StyleSheet.create({
   fundsSection: {
     backgroundColor: '#fff',
     paddingHorizontal: 16,
-    paddingVertical: 16,
+    paddingVertical: 14,
   },
   fundsHeaderRow: {
     flexDirection: 'row',
@@ -167,13 +194,13 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   fundsTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#333',
+    fontSize: 12,
+    fontFamily: 'Inter_500Medium',
+    color: '#262626',
   },
   historyText: {
-    fontSize: 14,
-    fontWeight: '600',
+    fontSize: 12,
+    fontFamily: 'Inter_600SemiBold',
     color: '#56328c',
   },
   card: {
@@ -184,13 +211,14 @@ const styles = StyleSheet.create({
     borderColor: '#e0e0e0',
   },
   label: {
-    fontSize: 14,
+    fontSize: 12,
     color: '#666',
+    fontFamily: 'Inter_400Regular',
   },
   balance: {
-    fontSize: 26,
-    fontWeight: 'bold',
-    color: '#333',
+    fontSize: 24,
+    fontFamily: 'Inter_500Medium',
+    color: '#262626',
     marginVertical: 8,
   },
   cardDivider: {
@@ -204,13 +232,14 @@ const styles = StyleSheet.create({
     marginVertical: 4,
   },
   subLabel: {
-    fontSize: 13,
+    fontSize: 12,
     color: '#666',
+    fontFamily: 'Inter_400Regular',
   },
   subValue: {
-    fontSize: 13,
-    fontWeight: '600',
-    color: '#333',
+    fontSize: 12,
+    fontFamily: 'Inter_600SemiBold',
+    color: '#262626',
   },
   buttonRow: {
     flexDirection: 'row',
@@ -231,16 +260,16 @@ const styles = StyleSheet.create({
   },
   withdrawBtnText: {
     color: '#56328c',
-    fontWeight: '600',
-    fontSize: 14,
+    fontFamily: 'Inter_600SemiBold',
+    fontSize: 12,
   },
   addBtn: {
     backgroundColor: '#56328c',
   },
   addBtnText: {
     color: '#fff',
-    fontWeight: '600',
-    fontSize: 14,
+    fontFamily: 'Inter_600SemiBold',
+    fontSize: 12,
   },
   menuContainer: {
     backgroundColor: '#fff',
@@ -249,7 +278,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 16,
+    paddingVertical: 14,
     paddingHorizontal: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#f5f5f5',
@@ -264,14 +293,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   menuTitle: {
-    fontSize: 15,
-    fontWeight: '600',
-    color: '#333',
+    fontSize: 12,
+    fontFamily: 'Inter_600SemiBold',
+    color: '#262626',
   },
   menuSubtitle: {
     fontSize: 11,
     color: '#888',
     marginTop: 2,
+    fontFamily: 'Inter_400Regular',
   },
   menuItemRight: {
     flexDirection: 'row',
@@ -286,8 +316,8 @@ const styles = StyleSheet.create({
   },
   badgeText: {
     fontSize: 10,
-    color: '#1DB954',
-    fontWeight: 'bold',
+    color: '#0B8062',
+    fontFamily: 'Inter_500Medium',
   },
   logoutButton: {
     flexDirection: 'row',
@@ -295,15 +325,30 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#fff',
     marginTop: 8,
-    paddingVertical: 16,
+    paddingVertical: 14,
     borderTopWidth: 1,
     borderBottomWidth: 1,
     borderColor: '#f0f0f0',
   },
   logoutText: {
-    fontSize: 15,
-    fontWeight: 'bold',
-    color: '#E53935',
+    fontSize: 12,
+    fontFamily: 'Inter_500Medium',
+    color: '#DA5329',
     marginLeft: 8,
   },
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

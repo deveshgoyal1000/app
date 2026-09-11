@@ -1,22 +1,17 @@
 {
   "expo": {
-    "name": "upstoxapp",
+    "name": "Upstox",
     "slug": "upstoxapp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/real-icon.png",
     "userInterfaceStyle": "light",
     "ios": {
       "supportsTablet": true
     },
-    "android": {
+    "android": { "softwareKeyboardLayoutMode": "pan", "statusBarStyle": "light", "statusBar": { "backgroundColor": "#5B2D8E" },
       "package": "com.upstoxapp.clone",
-      "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
-      },
+      
       "predictiveBackGestureEnabled": false
     },
     "web": {
@@ -27,6 +22,11 @@
         "projectId": "644576c0-d0b9-4cd8-9dcd-b7b171ff83ee"
       }
     },
-    "owner": "deveshgoyal"
+    "owner": "deveshgoyal",
+    "plugins": [
+      "expo-font"
+    ]
   }
 }
+
+
