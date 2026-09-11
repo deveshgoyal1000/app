@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Animated, StyleSheet, StatusBar } from 'react-native';
+import { View, Animated, StyleSheet } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -55,7 +56,7 @@ function MainApp() {
 
   return (
     <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
-      <StatusBar barStyle="dark-content" translucent={false} backgroundColor="#ffffff" />
+      <StatusBar style="dark" backgroundColor="#ffffff" translucent={false} />
       
       {/* Absolute top safe area block explicitly colored Teal */}
       <NavigationContainer>
@@ -104,7 +105,7 @@ export default function App() {
   if (showSplash) {
     return (
       <View style={{ flex: 1, backgroundColor: '#ffffff', justifyContent: 'center', alignItems: 'center' }}>
-        <StatusBar barStyle="dark-content" translucent={false} backgroundColor="#ffffff" />
+        <StatusBar style="dark" backgroundColor="#ffffff" translucent={false} />
         <CustomSplashScreen onFinish={() => setShowSplash(false)} />
       </View>
     );
