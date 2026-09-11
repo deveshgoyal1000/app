@@ -55,8 +55,8 @@ function MainApp() {
   const tabHeight = 50 + safeBottom;
 
   return (
-    <SafeAreaView edges={['top']} style={{ flex: 1, backgroundColor: '#ffffff' }}>
-      <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent={true} />
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#ffffff' }}>
+      <StatusBar barStyle="dark-content" backgroundColor="#ffffff" translucent={false} />
       
       {/* Absolute top safe area block explicitly colored Teal */}
       <NavigationContainer>
@@ -90,7 +90,7 @@ function MainApp() {
           <Tab.Screen name="Account" component={FundsScreen} />
         </Tab.Navigator>
       </NavigationContainer>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -104,10 +104,12 @@ export default function App() {
 
   if (showSplash) {
     return (
-      <SafeAreaView edges={['top']} style={{ flex: 1, backgroundColor: '#ffffff', justifyContent: 'center', alignItems: 'center' }}>
-        <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent={true} />
-        <CustomSplashScreen onFinish={() => setShowSplash(false)} />
-      </SafeAreaView>
+      <SafeAreaProvider>
+        <SafeAreaView style={{ flex: 1, backgroundColor: '#ffffff', justifyContent: 'center', alignItems: 'center' }}>
+          <StatusBar barStyle="dark-content" backgroundColor="#ffffff" translucent={false} />
+          <CustomSplashScreen onFinish={() => setShowSplash(false)} />
+        </SafeAreaView>
+      </SafeAreaProvider>
     );
   }
 
