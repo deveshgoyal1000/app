@@ -1,37 +1,38 @@
 {
-  "expo": {
-    "name": "Upstox",
-    "slug": "upstoxapp",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/real-icon.png",
-    "userInterfaceStyle": "light",
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "softwareKeyboardLayoutMode": "pan",
-      "statusBar": {
-        "barStyle": "dark-content",
-        "backgroundColor": "#FFFFFF"
-      },
-      "package": "com.upstoxapp.clone",
-      "predictiveBackGestureEnabled": false
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "644576c0-d0b9-4cd8-9dcd-b7b171ff83ee"
-      }
-    },
-    "owner": "deveshgoyal",
-    "plugins": [
-      "expo-font"
-    ],
-    "splash": {
-      "backgroundColor": "#ffffff"
-    }
-  }
+    "expo":  {
+                 "name":  "Upstox",
+                 "slug":  "upstoxapp",
+                 "version":  "1.0.0",
+                 "orientation":  "portrait",
+                 "icon":  "./assets/real-icon.png",
+                 "userInterfaceStyle":  "light",
+                 "ios":  {
+                             "supportsTablet":  true
+                         },
+                 "android":  {
+                                 "softwareKeyboardLayoutMode":  "pan",
+                                 "statusBar":  {
+                                                   "barStyle":  "dark-content",
+                                                   "backgroundColor":  "#FFFFFF",
+                                                   "translucent":  false
+                                               },
+                                 "package":  "com.upstoxapp.clone",
+                                 "predictiveBackGestureEnabled":  false
+                             },
+                 "web":  {
+                             "favicon":  "./assets/favicon.png"
+                         },
+                 "extra":  {
+                               "eas":  {
+                                           "projectId":  "644576c0-d0b9-4cd8-9dcd-b7b171ff83ee"
+                                       }
+                           },
+                 "owner":  "deveshgoyal",
+                 "plugins":  [
+                                 "expo-font"
+                             ],
+                 "splash":  {
+                                "backgroundColor":  "#ffffff"
+                            }
+             }
 }

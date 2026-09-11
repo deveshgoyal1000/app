@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Animated, StyleSheet, StatusBar } from 'react-native';
+import { View, Animated, StyleSheet } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
@@ -56,7 +57,7 @@ function MainApp() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#ffffff' }}>
-      <StatusBar barStyle="dark-content" backgroundColor="#ffffff" translucent={false} />
+      <StatusBar style="dark" backgroundColor="#ffffff" translucent={false} />
       
       {/* Absolute top safe area block explicitly colored Teal */}
       <NavigationContainer>
@@ -106,7 +107,7 @@ export default function App() {
     return (
       <SafeAreaProvider>
         <SafeAreaView style={{ flex: 1, backgroundColor: '#ffffff', justifyContent: 'center', alignItems: 'center' }}>
-          <StatusBar barStyle="dark-content" backgroundColor="#ffffff" translucent={false} />
+          <StatusBar style="dark" backgroundColor="#ffffff" translucent={false} />
           <CustomSplashScreen onFinish={() => setShowSplash(false)} />
         </SafeAreaView>
       </SafeAreaProvider>
