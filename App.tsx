@@ -6,7 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
-import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SafeAreaProvider, SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useFonts, Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold } from '@expo-google-fonts/inter';
 
 import WatchlistScreen from './src/screens/WatchlistScreen';
@@ -55,8 +55,8 @@ function MainApp() {
   const tabHeight = 50 + safeBottom;
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#ffffff', /* no padding */ }}>
-      <StatusBar barStyle="dark-content" backgroundColor="#ffffff" translucent={false} />
+    <SafeAreaView edges={['top']} style={{ flex: 1, backgroundColor: '#ffffff' }}>
+      <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent={true} />
       
       {/* Absolute top safe area block explicitly colored Teal */}
       <NavigationContainer>
@@ -104,10 +104,10 @@ export default function App() {
 
   if (showSplash) {
     return (
-      <View style={{ flex: 1, backgroundColor: '#ffffff', justifyContent: 'center', alignItems: 'center', /* no padding */ }}>
-        <StatusBar barStyle="dark-content" backgroundColor="#ffffff" translucent={false} />
+      <SafeAreaView edges={['top']} style={{ flex: 1, backgroundColor: '#ffffff', justifyContent: 'center', alignItems: 'center' }}>
+        <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent={true} />
         <CustomSplashScreen onFinish={() => setShowSplash(false)} />
-      </View>
+      </SafeAreaView>
     );
   }
 
