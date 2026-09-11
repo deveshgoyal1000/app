@@ -50,7 +50,7 @@ return (
       {/* Purple Header */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Account</Text>
-        <TouchableOpacity style={styles.iconBtn}>
+        <TouchableOpacity style={styles.iconBtn} onPress={showMarketClosed}>
           <Ionicons name="settings-outline" size={22} color="#fff" />
         </TouchableOpacity>
       </View>
@@ -113,9 +113,9 @@ return (
         <View style={styles.menuContainer}>
           <MenuItem icon="person-outline" title="My Account" subtitle="Profile, Bank Details, Segments" onPress={showMarketClosed} />
           <MenuItem icon="document-text-outline" title="Reports & Corporate Actions" subtitle="Ledger, P&L, Tax, Dividends" onPress={showMarketClosed} />
-          <MenuItem icon="gift-outline" title="Refer & Earn" badge="Reward" />
-          <MenuItem icon="settings-outline" title="Settings" subtitle="Dark mode, Notifications" />
-          <MenuItem icon="help-buoy-outline" title="Help & Support" subtitle="FAQs, Raise a ticket" />
+          <MenuItem icon="gift-outline" title="Refer & Earn" badge="Reward" onPress={showMarketClosed} />
+          <MenuItem icon="settings-outline" title="Settings" subtitle="Dark mode, Notifications" onPress={showMarketClosed} />
+          <MenuItem icon="help-buoy-outline" title="Help & Support" subtitle="FAQs, Raise a ticket" onPress={showMarketClosed} />
         </View>
 
         {/* Logout Button */}
