@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Platform, StatusBar } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import SharedChartModal from '../components/SharedChartModal';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const PURPLE = '#5B2D8E';
 const GREEN = '#0B8062';
@@ -11,11 +12,12 @@ const stocksData = require('../../data/stocks.json');
 
 export default function WatchlistScreen() {
   const insets = useSafeAreaInsets();
+  const [selectedStock, setSelectedStock] = useState<any>(null);
 return (
     <View style={styles.screen}>
-      {/* Announcement Banner */}
-      <TouchableOpacity style={[styles.holidayBanner, { paddingTop: insets.top + 12 }]}>
-        <Ionicons name="information-circle" size={20} color="#fff" style={{ marginTop: 2, marginRight: 10 }} />
+            {/* Announcement Banner */}
+      <TouchableOpacity style={[styles.holidayBanner, { paddingVertical: 12 }]}>
+        <Ionicons name="information-circle" size={20} color="#000" style={{ marginTop: 2, marginRight: 10 }} />
         <View style={{ flex: 1 }}>
           <Text style={styles.holidayBannerText}>14 Sept is a trading holiday on account of Ganesh Chaturthi</Text>
         </View>
@@ -77,7 +79,7 @@ return (
         contentContainerStyle={{ paddingBottom: 24 }}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
         renderItem={({ item }) => (
-          <TouchableOpacity style={styles.row}>
+          <TouchableOpacity style={styles.row} onPress={() => setSelectedStock({ ...item, name: item.symbol, ltp: item.price, prevClose: item.price - item.change })}>
             <View>
               <Text style={styles.symbol}>{item.symbol}</Text>
               <Text style={styles.exchange}>{item.exchange}  EQ</Text>
@@ -93,14 +95,15 @@ return (
           </TouchableOpacity>
         )}
       />
+      <SharedChartModal stock={selectedStock} onClose={() => setSelectedStock(null)} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  holidayBanner: { backgroundColor: '#00A3A1', paddingVertical: 12, paddingHorizontal: 16, flexDirection: 'row', alignItems: 'flex-start' },
-  holidayBannerText: { color: '#fff', fontSize: 13, fontFamily: 'Inter_500Medium', lineHeight: 18 },
-  knowMoreText: { color: '#fff', fontSize: 13, fontFamily: 'Inter_700Bold', marginLeft: 10, marginTop: 2 },screen: { flex: 1, backgroundColor: '#fff' },
+    holidayBanner: { backgroundColor: '#ffffff', paddingHorizontal: 16, flexDirection: 'row', alignItems: 'flex-start' },
+  holidayBannerText: { color: '#000', fontSize: 13, fontFamily: 'Inter_500Medium', lineHeight: 18 },
+  knowMoreText: { color: '#000', fontSize: 13, fontFamily: 'Inter_700Bold', marginLeft: 10, marginTop: 2 },screen: { flex: 1, backgroundColor: '#fff' },
   header: {
     backgroundColor: PURPLE,
     paddingTop: 12,
@@ -156,6 +159,8 @@ const styles = StyleSheet.create({
   change: { fontSize: 11, fontFamily: 'Inter_400Regular' },
   separator: { height: 1, backgroundColor: '#f2f2f2', marginLeft: 16 },
 });
+
+
 
 
 

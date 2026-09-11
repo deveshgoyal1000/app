@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Platform, StatusBar } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -27,12 +26,11 @@ const MenuItem = ({ icon, title, subtitle, badge }: any) => (
 );
 
 export default function FundsScreen() {
-  const insets = useSafeAreaInsets();
 return (
     <View style={styles.screen}>
-      {/* Announcement Banner */}
-      <TouchableOpacity style={[styles.holidayBanner, { paddingTop: insets.top + 12 }]}>
-        <Ionicons name="information-circle" size={20} color="#fff" style={{ marginTop: 2, marginRight: 10 }} />
+            {/* Announcement Banner */}
+      <TouchableOpacity style={[styles.holidayBanner, { paddingVertical: 12 }]}>
+        <Ionicons name="information-circle" size={20} color="#000" style={{ marginTop: 2, marginRight: 10 }} />
         <View style={{ flex: 1 }}>
           <Text style={styles.holidayBannerText}>14 Sept is a trading holiday on account of Ganesh Chaturthi</Text>
         </View>
@@ -123,9 +121,9 @@ return (
 }
 
 const styles = StyleSheet.create({
-  holidayBanner: { backgroundColor: '#00A3A1', paddingVertical: 12, paddingHorizontal: 16, flexDirection: 'row', alignItems: 'flex-start' },
-  holidayBannerText: { color: '#fff', fontSize: 13, fontFamily: 'Inter_500Medium', lineHeight: 18 },
-  knowMoreText: { color: '#fff', fontSize: 13, fontFamily: 'Inter_700Bold', marginLeft: 10, marginTop: 2 },screen: {
+    holidayBanner: { backgroundColor: '#ffffff', paddingHorizontal: 16, flexDirection: 'row', alignItems: 'flex-start' },
+  holidayBannerText: { color: '#000', fontSize: 13, fontFamily: 'Inter_500Medium', lineHeight: 18 },
+  knowMoreText: { color: '#000', fontSize: 13, fontFamily: 'Inter_700Bold', marginLeft: 10, marginTop: 2 },screen: {
     flex: 1,
     backgroundColor: '#fff',
   },
@@ -337,6 +335,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
 });
+
 
 
 

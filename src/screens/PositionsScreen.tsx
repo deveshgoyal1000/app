@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Platform, StatusBar } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const PURPLE = '#5B2D8E';
 
@@ -12,9 +12,9 @@ const [activeFilter, setActiveFilter] = useState('Regular');
 
   return (
     <View style={styles.screen}>
-      {/* Announcement Banner */}
-      <TouchableOpacity style={[styles.holidayBanner, { paddingTop: insets.top + 12 }]}>
-        <Ionicons name="information-circle" size={20} color="#fff" style={{ marginTop: 2, marginRight: 10 }} />
+            {/* Announcement Banner */}
+      <TouchableOpacity style={[styles.holidayBanner, { paddingVertical: 12 }]}>
+        <Ionicons name="information-circle" size={20} color="#000" style={{ marginTop: 2, marginRight: 10 }} />
         <View style={{ flex: 1 }}>
           <Text style={styles.holidayBannerText}>14 Sept is a trading holiday on account of Ganesh Chaturthi</Text>
         </View>
@@ -71,9 +71,9 @@ const [activeFilter, setActiveFilter] = useState('Regular');
 }
 
 const styles = StyleSheet.create({
-  holidayBanner: { backgroundColor: '#00A3A1', paddingVertical: 12, paddingHorizontal: 16, flexDirection: 'row', alignItems: 'flex-start' },
-  holidayBannerText: { color: '#fff', fontSize: 13, fontFamily: 'Inter_500Medium', lineHeight: 18 },
-  knowMoreText: { color: '#fff', fontSize: 13, fontFamily: 'Inter_700Bold', marginLeft: 10, marginTop: 2 },screen: { flex: 1, backgroundColor: '#f4f4f8' },
+    holidayBanner: { backgroundColor: '#ffffff', paddingHorizontal: 16, flexDirection: 'row', alignItems: 'flex-start' },
+  holidayBannerText: { color: '#000', fontSize: 13, fontFamily: 'Inter_500Medium', lineHeight: 18 },
+  knowMoreText: { color: '#000', fontSize: 13, fontFamily: 'Inter_700Bold', marginLeft: 10, marginTop: 2 },screen: { flex: 1, backgroundColor: '#f4f4f8' },
   header: { backgroundColor: PURPLE, paddingTop: 12, paddingBottom: 14, paddingHorizontal: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   headerTitle: { color: '#fff', fontSize: 20, fontFamily: 'Inter_500Medium' },
   headerIcons: { flexDirection: 'row' },
@@ -93,6 +93,7 @@ const styles = StyleSheet.create({
   goBtn: { marginTop: 24, paddingVertical: 10, paddingHorizontal: 20, borderRadius: 6, borderWidth: 1, borderColor: '#aaa' },
   goBtnText: { color: '#262626', fontFamily: 'Inter_500Medium', fontSize: 14 },
 });
+
 
 
 

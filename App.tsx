@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Animated, StyleSheet, Image } from 'react-native';
+import { View, Animated, StyleSheet, StatusBar } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useFonts, Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold } from '@expo-google-fonts/inter';
 
-// Screens
 import WatchlistScreen from './src/screens/WatchlistScreen';
 import PositionsScreen from './src/screens/PositionsScreen';
 import HoldingsScreen from './src/screens/HoldingsScreen';
@@ -15,7 +15,6 @@ import FundsScreen from './src/screens/FundsScreen';
 
 const Tab = createBottomTabNavigator();
 
-// Export font family name for use across screens
 export const FONT = {
   regular: 'Inter_400Regular',
   medium: 'Inter_500Medium',
@@ -23,7 +22,6 @@ export const FONT = {
   bold: 'Inter_700Bold',
 };
 
-// Splash Screen Animation Component
 function CustomSplashScreen({ onFinish }: { onFinish: () => void }) {
   const scaleAnim = useRef(new Animated.Value(0.4)).current;
   const opacityAnim = useRef(new Animated.Value(0)).current;
@@ -48,51 +46,40 @@ function CustomSplashScreen({ onFinish }: { onFinish: () => void }) {
   );
 }
 
-export default function App() {
-  const [showSplash, setShowSplash] = useState(true);
-  const [fontsLoaded] = useFonts({
-    Inter_400Regular,
-    Inter_500Medium,
-    Inter_600SemiBold,
-    Inter_700Bold,
-  });
-
-  if (!fontsLoaded) return null;
-
-  if (showSplash) {
-    return (
-      <View style={{ flex: 1, backgroundColor: '#ffffff', justifyContent: 'center', alignItems: 'center' }}>
-        <StatusBar style="light" translucent={true} backgroundColor="transparent" />
-        <CustomSplashScreen onFinish={() => setShowSplash(false)} />
-      </View>
-    );
-  }
+function MainApp() {
+  const insets = useSafeAreaInsets();
+  
+  // Explicitly calculate a thick bottom padding so it never hides behind the buttons
+  const safeBottom = Math.max(insets.bottom, 20);
+  const tabHeight = 50 + safeBottom;
 
   return (
-    <SafeAreaProvider>
+    <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
+      <StatusBar barStyle="dark-content" translucent={false} backgroundColor="#ffffff" />
+      
+      {/* Absolute top safe area block explicitly colored Teal */}
       <NavigationContainer>
-        <StatusBar style="light" translucent={true} backgroundColor="transparent" />
         <Tab.Navigator
           screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
               let iconName: keyof typeof Ionicons.glyphMap = 'list';
-
-              if (route.name === 'My List') {
-                iconName = focused ? 'bookmark' : 'bookmark-outline';
-              } else if (route.name === 'Positions') {
-                iconName = focused ? 'swap-vertical' : 'swap-vertical-outline';
-              } else if (route.name === 'Holdings') {
-                iconName = focused ? 'briefcase' : 'briefcase-outline';
-              } else if (route.name === 'Account') {
-                iconName = focused ? 'person' : 'person-outline';
-              }
-
+              if (route.name === 'My List') iconName = focused ? 'bookmark' : 'bookmark-outline';
+              else if (route.name === 'Positions') iconName = focused ? 'swap-vertical' : 'swap-vertical-outline';
+              else if (route.name === 'Holdings') iconName = focused ? 'briefcase' : 'briefcase-outline';
+              else if (route.name === 'Account') iconName = focused ? 'person' : 'person-outline';
               return <Ionicons name={iconName} size={22} color={color} />;
             },
             tabBarActiveTintColor: '#56328c',
             tabBarInactiveTintColor: '#888',
             tabBarLabelStyle: { fontSize: 11, fontWeight: '600', marginBottom: 4 },
-            tabBarStyle: { paddingTop: 8, paddingBottom: 8, backgroundColor: '#ffffff', borderTopWidth: 1, borderTopColor: '#f0f0f0' },
+            tabBarStyle: { 
+              paddingTop: 8, 
+              paddingBottom: safeBottom, 
+              height: tabHeight, 
+              backgroundColor: '#ffffff', 
+              borderTopWidth: 1, 
+              borderTopColor: '#f0f0f0' 
+            },
             headerShown: false,
           })}
         >
@@ -102,7 +89,33 @@ export default function App() {
           <Tab.Screen name="Account" component={FundsScreen} />
         </Tab.Navigator>
       </NavigationContainer>
-    </SafeAreaProvider>
+    </View>
+  );
+}
+
+export default function App() {
+  const [showSplash, setShowSplash] = useState(true);
+  const [fontsLoaded] = useFonts({
+    Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold,
+  });
+
+  if (!fontsLoaded) return null;
+
+  if (showSplash) {
+    return (
+      <View style={{ flex: 1, backgroundColor: '#ffffff', justifyContent: 'center', alignItems: 'center' }}>
+        <StatusBar barStyle="dark-content" translucent={false} backgroundColor="#ffffff" />
+        <CustomSplashScreen onFinish={() => setShowSplash(false)} />
+      </View>
+    );
+  }
+
+  return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaProvider>
+        <MainApp />
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 }
 
@@ -110,10 +123,4 @@ const styles = StyleSheet.create({
   splashContainer: { justifyContent: 'center', alignItems: 'center' },
   splashImage: { width: 180, height: 180, borderRadius: 20 }
 });
-
-
-
-
-
-
 

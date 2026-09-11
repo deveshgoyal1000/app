@@ -9,9 +9,13 @@
     "ios": {
       "supportsTablet": true
     },
-    "android": { "softwareKeyboardLayoutMode": "pan", "statusBarStyle": "light", "statusBar": { "backgroundColor": "#5B2D8E" },
+    "android": {
+      "softwareKeyboardLayoutMode": "pan",
+      "statusBarStyle": "dark",
+      "statusBar": {
+        "backgroundColor": "#ffffff"
+      },
       "package": "com.upstoxapp.clone",
-      
       "predictiveBackGestureEnabled": false
     },
     "web": {
@@ -28,5 +32,3 @@
     ]
   }
 }
-
-
