@@ -55,8 +55,8 @@ function MainApp() {
   const tabHeight = 50 + safeBottom;
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
-      <StatusBar barStyle="dark-content" backgroundColor="#ffffff" translucent={false} />
+    <View style={{ flex: 1, backgroundColor: '#ffffff', paddingTop: insets.top }}>
+      <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent={true} />
       
       {/* Absolute top safe area block explicitly colored Teal */}
       <NavigationContainer>
@@ -104,8 +104,8 @@ export default function App() {
 
   if (showSplash) {
     return (
-      <View style={{ flex: 1, backgroundColor: '#ffffff', justifyContent: 'center', alignItems: 'center' }}>
-        <StatusBar barStyle="dark-content" backgroundColor="#ffffff" translucent={false} />
+      <View style={{ flex: 1, backgroundColor: '#ffffff', justifyContent: 'center', alignItems: 'center', paddingTop: 40 }}>
+        <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent={true} />
         <CustomSplashScreen onFinish={() => setShowSplash(false)} />
       </View>
     );
