@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Animated, StyleSheet, StatusBar } from 'react-native';
+import { View, Animated, StyleSheet, StatusBar, Platform } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -40,19 +40,14 @@ function CustomSplashScreen({ onFinish }: { onFinish: () => void }) {
 }
 function MainApp() {
   const insets = useSafeAreaInsets();
-  // Explicitly calculate a thick bottom padding so it never hides behind the buttons
+  // Use StatusBar.currentHeight for Android to get exact notch height. Fallback to insets.top for iOS.
+  const topPadding = Platform.OS === 'android' ? (StatusBar.currentHeight || 24) : insets.top;
   const safeBottom = Math.max(insets.bottom, 20);
   const tabHeight = 50 + safeBottom;
   return (
     <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
       <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent={true} />
-      {/* 
-        GUARANTEED STATUS BAR AVOIDANCE:
-        This draws a solid white block exactly the size of the physical notch/status bar.
-        Because StatusBar is translucent, it floats over this white block.
-        Everything else in the app is pushed safely below it.
-      */}
-      <View style={{ height: Math.max(insets.top, 24), backgroundColor: '#ffffff', width: '100%' }} />
+      <View style={{ height: topPadding, backgroundColor: '#ffffff', width: '100%' }} />
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={({ route }) => ({
