@@ -16,6 +16,10 @@
                                                    "backgroundColor":  "#00000000",
                                                    "translucent":  true
                                                },
+                                 "navigationBar": {
+                                                   "backgroundColor": "#FFFFFF",
+                                                   "barStyle": "dark-content"
+                                               },
                                  "package":  "com.upstoxapp.clone",
                                  "predictiveBackGestureEnabled":  false
                              },
