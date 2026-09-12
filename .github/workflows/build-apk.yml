@@ -37,9 +37,11 @@ jobs:
 
       - name: Build APK
         working-directory: android
+        env:
+          GRADLE_OPTS: -Dorg.gradle.jvmargs="-Xmx4g -XX:+UseG1GC"
         run: |
           chmod +x gradlew
-          ./gradlew assembleRelease --build-cache --parallel --no-daemon
+          ./gradlew assembleRelease --build-cache --parallel --configure-on-demand
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
