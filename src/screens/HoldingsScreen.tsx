@@ -6,6 +6,7 @@ import {
   PanResponder, Dimensions, StatusBar
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useSystemBottomInset } from '../hooks/useSystemBottomInset';
 import { Ionicons } from '@expo/vector-icons';
 import { ToastAndroid, Platform, Alert } from 'react-native';
 import Svg, { Path, Line, Circle, Defs, LinearGradient, Stop } from 'react-native-svg';
@@ -262,6 +263,7 @@ export default function HoldingsScreen() {
   const [chartRange, setChartRange] = useState('1Y');
   const [chartLayout, setChartLayout] = useState({ width: SCREEN_W, height: 320 });
   const insets = useSafeAreaInsets();
+  const systemBottomInset = useSystemBottomInset();
   
               const rawHoldings = [
     { id: '1', name: 'RAJESHEXPO', qty: 50,  avg: 540.00,  ltp: 220.00,  prevClose: 215.00 },
@@ -588,7 +590,7 @@ Please trade between 9:15 AM - 3:30 PM`;
                       </View>
                     ))}
                   </View>
-                  <View style={[styles.actionRow, { marginBottom: Math.max(insets.bottom, 12) }]}>
+                  <View style={[styles.actionRow, { marginBottom: Math.max(systemBottomInset, 12) }]}>
                     <TouchableOpacity style={[styles.actionBtn, { backgroundColor: GREEN }]} onPress={showMarketClosed}>
                       <Text style={styles.actionBtnText}>Buy</Text>
                     </TouchableOpacity>
@@ -674,7 +676,7 @@ Please trade between 9:15 AM - 3:30 PM`;
                 )}
               </View>
 
-              <View style={[styles.chartBottomBar, { paddingBottom: Math.max(insets.bottom, 12) }]}>
+              <View style={[styles.chartBottomBar, { paddingBottom: Math.max(systemBottomInset, 12) }]}>
                 <TouchableOpacity style={[styles.chartActionBtn, { backgroundColor: GREEN }]} onPress={showMarketClosed}>
                   <Text style={styles.actionBtnText}>Buy</Text>
                 </TouchableOpacity>

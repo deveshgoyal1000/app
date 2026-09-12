@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useSystemBottomInset } from './src/hooks/useSystemBottomInset';
 import { useFonts, Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold } from '@expo-google-fonts/inter';
 import WatchlistScreen from './src/screens/WatchlistScreen';
 import PositionsScreen from './src/screens/PositionsScreen';
@@ -64,8 +65,8 @@ function MainApp() {
             tabBarLabelStyle: { fontSize: 11, fontWeight: '600', marginBottom: 4 },
             tabBarStyle: {
               paddingTop: 8,
-              paddingBottom: Math.max(insets.bottom, 12),
-              minHeight: 50 + Math.max(insets.bottom, 12),
+              paddingBottom: useSystemBottomInset(),
+              minHeight: 50 + useSystemBottomInset(),
               backgroundColor: '#ffffff',
               borderTopWidth: 1,
               borderTopColor: '#f0f0f0',
