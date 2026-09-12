@@ -16,10 +16,10 @@
                                                    "backgroundColor":  "#00000000",
                                                    "translucent":  true
                                                },
-                                 "navigationBar": {
-                                                   "backgroundColor": "#FFFFFF",
-                                                   "barStyle": "dark-content"
-                                               },
+                                 "navigationBar":  {
+                                                       "backgroundColor":  "#FFFFFF",
+                                                       "barStyle":  "dark-content"
+                                                   },
                                  "package":  "com.upstoxapp.clone",
                                  "predictiveBackGestureEnabled":  false
                              },
@@ -35,15 +35,17 @@
                  "plugins":  [
                                  "expo-font",
                                  [
-                                   "expo-status-bar",
-                                   {
-                                     "style": "dark",
-                                     "backgroundColor": "#00000000"
-                                   }
+                                     "expo-status-bar",
+                                     {
+                                         "style":  "dark",
+                                         "backgroundColor":  "#00000000"
+                                     }
                                  ]
                              ],
                  "splash":  {
-                                "backgroundColor":  "#ffffff"
+                                "backgroundColor":  "#ffffff",
+                                "image":  "./assets/real-icon.png",
+                                "resizeMode":  "contain"
                             }
              }
 }
