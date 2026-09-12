@@ -6,7 +6,7 @@ import {
   PanResponder, Dimensions, StatusBar
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useSystemBottomInset } from '../hooks/useSystemBottomInset';
+import { useSystemAndImeBottomInset } from '../hooks/useSystemBottomInset';
 import { Ionicons } from '@expo/vector-icons';
 import { ToastAndroid, Platform, Alert } from 'react-native';
 import Svg, { Path, Line, Circle, Defs, LinearGradient, Stop } from 'react-native-svg';
@@ -263,7 +263,7 @@ export default function HoldingsScreen() {
   const [chartRange, setChartRange] = useState('1Y');
   const [chartLayout, setChartLayout] = useState({ width: SCREEN_W, height: 320 });
   const insets = useSafeAreaInsets();
-  const systemBottomInset = useSystemBottomInset();
+  const systemBottomInset = useSystemAndImeBottomInset();
   
               const rawHoldings = [
     { id: '1', name: 'RAJESHEXPO', qty: 50,  avg: 540.00,  ltp: 220.00,  prevClose: 215.00 },

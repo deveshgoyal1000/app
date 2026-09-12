@@ -3,7 +3,7 @@ import FastToast from './FastToast';
 import { View, Text, StyleSheet, TouchableOpacity, Modal, Dimensions, PanResponder, Alert, ToastAndroid, Platform, Animated } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useSystemBottomInset } from '../hooks/useSystemBottomInset';
+import { useSystemAndImeBottomInset } from '../hooks/useSystemBottomInset';
 import Svg, { Defs, LinearGradient, Stop, Path, Line, Circle } from 'react-native-svg';
 
 const SCREEN_W = Dimensions.get('window').width;
@@ -193,7 +193,7 @@ export default function SharedChartModal({
   const fastToastRef = React.useRef<any>(null);
   const [chartLayout, setChartLayout] = useState({ width: SCREEN_W, height: 320 });
   const insets = useSafeAreaInsets();
-  const systemBottomInset = useSystemBottomInset();
+  const systemBottomInset = useSystemAndImeBottomInset();
   useEffect(() => {
     if (stock) {
       setChartRange('1Y');
