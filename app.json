@@ -40,11 +40,12 @@
                                          "style":  "dark",
                                          "backgroundColor":  "#00000000"
                                      }
-                                 ]
+                                 ],
+                                 "./withBlankSplash.js"
                              ],
                  "splash":  {
                                 "backgroundColor":  "#ffffff",
-                                "image":  "./assets/real-icon.png",
+                                "image":  "./assets/transparent.png",
                                 "resizeMode":  "contain"
                             }
              }
