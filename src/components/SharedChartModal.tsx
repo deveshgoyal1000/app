@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import FastToast from './FastToast';
 import { View, Text, StyleSheet, TouchableOpacity, Modal, Dimensions, PanResponder, Alert, ToastAndroid, Platform, Animated } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Defs, LinearGradient, Stop, Path, Line, Circle } from 'react-native-svg';
 
 const SCREEN_W = Dimensions.get('window').width;
@@ -190,7 +191,7 @@ export default function SharedChartModal({
   const [chartRange, setChartRange] = useState('1Y');
   const fastToastRef = React.useRef<any>(null);
   const [chartLayout, setChartLayout] = useState({ width: SCREEN_W, height: 320 });
-  
+  const insets = useSafeAreaInsets();
   useEffect(() => {
     if (stock) {
       setChartRange('1Y');
@@ -348,7 +349,7 @@ Please trade between 9:15 AM - 3:30 PM`);
           </View>
 
 
-          <View style={styles.chartBottomBar}>
+          <View style={[styles.chartBottomBar, { paddingBottom: Math.max(insets.bottom, 12) }]}>
             <TouchableOpacity style={[styles.chartActionBtn, { backgroundColor: '#0B8062' }]} onPress={() => showMarketClosed()}>
               <Text style={{ color: '#fff', fontFamily: 'Inter_600SemiBold' }}>BUY</Text>
             </TouchableOpacity>

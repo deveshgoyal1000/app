@@ -64,8 +64,8 @@ function MainApp() {
             tabBarLabelStyle: { fontSize: 11, fontWeight: '600', marginBottom: 4 },
             tabBarStyle: {
               paddingTop: 8,
-              paddingBottom: Platform.OS === 'ios' ? insets.bottom : 8,
-              minHeight: Platform.OS === 'ios' ? 50 + insets.bottom : 60,
+              paddingBottom: Math.max(insets.bottom, 12),
+              minHeight: 50 + Math.max(insets.bottom, 12),
               backgroundColor: '#ffffff',
               borderTopWidth: 1,
               borderTopColor: '#f0f0f0',
