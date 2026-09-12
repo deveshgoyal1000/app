@@ -9,8 +9,8 @@ export default function OrdersScreen() {
   const [activeTab, setActiveTab] = useState('Open');
 
   return (
-    <SafeAreaView style={styles.screen}>
-      <StatusBar backgroundColor="#ffffff" barStyle="dark-content" translucent={false} />
+    <View style={styles.screen}>
+
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Trades</Text>
         <View style={styles.headerIcons}>
@@ -34,7 +34,7 @@ export default function OrdersScreen() {
         <Text style={styles.title}>No {activeTab.toLowerCase()} orders</Text>
         <Text style={styles.subtitle}>Place an order from the Watchlist</Text>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 

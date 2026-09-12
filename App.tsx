@@ -45,7 +45,14 @@ function MainApp() {
   const tabHeight = 50 + safeBottom;
   return (
     <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
-      <StatusBar backgroundColor="#ffffff" barStyle="dark-content" translucent={false} />
+      <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent={true} />
+      {/* 
+        GUARANTEED STATUS BAR AVOIDANCE:
+        This draws a solid white block exactly the size of the physical notch/status bar.
+        Because StatusBar is translucent, it floats over this white block.
+        Everything else in the app is pushed safely below it.
+      */}
+      <View style={{ height: Math.max(insets.top, 24), backgroundColor: '#ffffff', width: '100%' }} />
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={({ route }) => ({
@@ -90,7 +97,7 @@ export default function App() {
     return (
       <SafeAreaProvider>
         <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
-          <StatusBar backgroundColor="#ffffff" barStyle="dark-content" translucent={false} />
+          <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent={true} />
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <CustomSplashScreen onFinish={() => setShowSplash(false)} />
           </View>

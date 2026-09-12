@@ -13,8 +13,8 @@
                                  "softwareKeyboardLayoutMode":  "pan",
                                  "statusBar":  {
                                                    "barStyle":  "dark-content",
-                                                   "backgroundColor":  "#FFFFFF",
-                                                   "translucent":  false
+                                                   "backgroundColor":  "#00000000",
+                                                   "translucent":  true
                                                },
                                  "package":  "com.upstoxapp.clone",
                                  "predictiveBackGestureEnabled":  false
@@ -34,7 +34,7 @@
                                    "expo-status-bar",
                                    {
                                      "style": "dark",
-                                     "backgroundColor": "#ffffff"
+                                     "backgroundColor": "#00000000"
                                    }
                                  ]
                              ],

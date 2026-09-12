@@ -13,7 +13,7 @@ export default function WatchlistScreen() {
   const insets = useSafeAreaInsets();
   const [selectedStock, setSelectedStock] = useState<any>(null);
 return (
-    <SafeAreaView style={styles.screen}>
+    <View style={styles.screen}>
             {/* Announcement Banner */}
       <TouchableOpacity style={[styles.holidayBanner, { paddingVertical: 12 }]}>
         <Ionicons name="information-circle" size={20} color="#000" style={{ marginTop: 2, marginRight: 10 }} />
@@ -95,7 +95,7 @@ return (
         )}
       />
       <SharedChartModal stock={selectedStock} onClose={() => setSelectedStock(null)} />
-    </SafeAreaView>
+    </View>
   );
 }
 

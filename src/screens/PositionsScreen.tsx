@@ -10,8 +10,8 @@ const [activeFilter, setActiveFilter] = useState('Regular');
   const filters = ['Regular (0)', 'MTF (0)', 'Strategy (0)'];
 
   return (
-    <SafeAreaView style={styles.screen}>
-      <StatusBar backgroundColor="#ffffff" barStyle="dark-content" translucent={false} />
+    <View style={styles.screen}>
+
             {/* Announcement Banner */}
       <TouchableOpacity style={[styles.holidayBanner, { paddingVertical: 12 }]}>
         <Ionicons name="information-circle" size={20} color="#000" style={{ marginTop: 2, marginRight: 10 }} />
@@ -66,7 +66,7 @@ const [activeFilter, setActiveFilter] = useState('Regular');
 
         <View style={{ height: 24 }} />
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 

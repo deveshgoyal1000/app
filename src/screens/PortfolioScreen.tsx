@@ -20,8 +20,8 @@ export default function PortfolioScreen() {
   const filters = ['Regular (0)', 'MTF (0)', 'Strategy (0)'];
 
   return (
-    <SafeAreaView style={styles.screen}>
-      <StatusBar backgroundColor="#ffffff" barStyle="dark-content" translucent={false} />
+    <View style={styles.screen}>
+
 
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Portfolio</Text>
@@ -119,7 +119,7 @@ export default function PortfolioScreen() {
 
         <View style={{ height: 24 }} />
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 

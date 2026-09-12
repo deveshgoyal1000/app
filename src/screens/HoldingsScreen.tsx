@@ -431,8 +431,8 @@ Please trade between 9:15 AM - 3:30 PM`;
     toastChartRef.current?.show(msg);
   };
   return (
-    <SafeAreaView style={styles.screen}>
-        <StatusBar backgroundColor="#ffffff" barStyle="dark-content" translucent={false} />
+    <View style={styles.screen}>
+
 
             {/* Announcement Banner */}
       <TouchableOpacity style={[styles.holidayBanner, { paddingVertical: 12 }]}>
@@ -688,7 +688,7 @@ Please trade between 9:15 AM - 3:30 PM`;
           </View>
         </Modal>
         <FastToast ref={toastMainRef} bottomOffset={100} />
-    </SafeAreaView>
+    </View>
   );
 }
 
