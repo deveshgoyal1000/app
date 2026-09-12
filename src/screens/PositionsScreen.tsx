@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Platform, StatusBar } from 'react-native';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
 const PURPLE = '#5B2D8E';
 
 export default function PositionsScreen() {
@@ -11,7 +10,8 @@ const [activeFilter, setActiveFilter] = useState('Regular');
   const filters = ['Regular (0)', 'MTF (0)', 'Strategy (0)'];
 
   return (
-    <View style={styles.screen}>
+    <SafeAreaView style={styles.screen}>
+      <StatusBar backgroundColor="#ffffff" barStyle="dark-content" translucent={false} />
             {/* Announcement Banner */}
       <TouchableOpacity style={[styles.holidayBanner, { paddingVertical: 12 }]}>
         <Ionicons name="information-circle" size={20} color="#000" style={{ marginTop: 2, marginRight: 10 }} />
@@ -66,14 +66,15 @@ const [activeFilter, setActiveFilter] = useState('Regular');
 
         <View style={{ height: 24 }} />
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
     holidayBanner: { backgroundColor: '#ffffff', paddingHorizontal: 16, flexDirection: 'row', alignItems: 'flex-start' },
   holidayBannerText: { color: '#000', fontSize: 13, fontFamily: 'Inter_500Medium', lineHeight: 18 },
-  knowMoreText: { color: '#000', fontSize: 13, fontFamily: 'Inter_700Bold', marginLeft: 10, marginTop: 2 },screen: { flex: 1, backgroundColor: '#f4f4f8' },
+  knowMoreText: { color: '#000', fontSize: 13, fontFamily: 'Inter_700Bold', marginLeft: 10, marginTop: 2 },
+  screen: { flex: 1, backgroundColor: '#f4f4f8' },
   header: { backgroundColor: PURPLE, paddingTop: 12, paddingBottom: 14, paddingHorizontal: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   headerTitle: { color: '#fff', fontSize: 20, fontFamily: 'Inter_500Medium' },
   headerIcons: { flexDirection: 'row' },

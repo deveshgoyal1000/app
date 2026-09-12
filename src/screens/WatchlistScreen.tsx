@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Platform, StatusBar } from 'react-native';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import SharedChartModal from '../components/SharedChartModal';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
 const PURPLE = '#5B2D8E';
 const GREEN = '#0B8062';
 const RED = '#DA5329';
@@ -14,7 +13,7 @@ export default function WatchlistScreen() {
   const insets = useSafeAreaInsets();
   const [selectedStock, setSelectedStock] = useState<any>(null);
 return (
-    <View style={styles.screen}>
+    <SafeAreaView style={styles.screen}>
             {/* Announcement Banner */}
       <TouchableOpacity style={[styles.holidayBanner, { paddingVertical: 12 }]}>
         <Ionicons name="information-circle" size={20} color="#000" style={{ marginTop: 2, marginRight: 10 }} />
@@ -96,14 +95,15 @@ return (
         )}
       />
       <SharedChartModal stock={selectedStock} onClose={() => setSelectedStock(null)} />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
     holidayBanner: { backgroundColor: '#ffffff', paddingHorizontal: 16, flexDirection: 'row', alignItems: 'flex-start' },
   holidayBannerText: { color: '#000', fontSize: 13, fontFamily: 'Inter_500Medium', lineHeight: 18 },
-  knowMoreText: { color: '#000', fontSize: 13, fontFamily: 'Inter_700Bold', marginLeft: 10, marginTop: 2 },screen: { flex: 1, backgroundColor: '#fff' },
+  knowMoreText: { color: '#000', fontSize: 13, fontFamily: 'Inter_700Bold', marginLeft: 10, marginTop: 2 },
+  screen: { flex: 1, backgroundColor: '#fff' },
   header: {
     backgroundColor: PURPLE,
     paddingTop: 12,

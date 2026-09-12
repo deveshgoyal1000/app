@@ -1,6 +1,7 @@
 import React from 'react';
 import FastToast from '../components/FastToast';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Platform, StatusBar } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { ToastAndroid, Alert } from 'react-native';
 
@@ -37,7 +38,8 @@ export default function FundsScreen() {
   };
 
 return (
-    <View style={styles.screen}>
+    <SafeAreaView style={styles.screen}>
+      <StatusBar backgroundColor="#ffffff" barStyle="dark-content" translucent={false} />
             {/* Announcement Banner */}
       <TouchableOpacity style={[styles.holidayBanner, { paddingVertical: 12 }]}>
         <Ionicons name="information-circle" size={20} color="#000" style={{ marginTop: 2, marginRight: 10 }} />
@@ -127,14 +129,15 @@ return (
         <View style={{ height: 40 }} />
       </ScrollView>
       <FastToast ref={fastToastRef} bottomOffset={100} />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
     holidayBanner: { backgroundColor: '#ffffff', paddingHorizontal: 16, flexDirection: 'row', alignItems: 'flex-start' },
   holidayBannerText: { color: '#000', fontSize: 13, fontFamily: 'Inter_500Medium', lineHeight: 18 },
-  knowMoreText: { color: '#000', fontSize: 13, fontFamily: 'Inter_700Bold', marginLeft: 10, marginTop: 2 },screen: {
+  knowMoreText: { color: '#000', fontSize: 13, fontFamily: 'Inter_700Bold', marginLeft: 10, marginTop: 2 },
+  screen: {
     flex: 1,
     backgroundColor: '#fff',
   },

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Platform, StatusBar } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -19,7 +20,8 @@ export default function PortfolioScreen() {
   const filters = ['Regular (0)', 'MTF (0)', 'Strategy (0)'];
 
   return (
-    <View style={styles.screen}>
+    <SafeAreaView style={styles.screen}>
+      <StatusBar backgroundColor="#ffffff" barStyle="dark-content" translucent={false} />
 
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Portfolio</Text>
@@ -117,13 +119,13 @@ export default function PortfolioScreen() {
 
         <View style={{ height: 24 }} />
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: '#f4f4f8' },
-  header: { backgroundColor: PURPLE, paddingTop: Platform.OS === 'android' ? 16 : 50, paddingBottom: 14, paddingHorizontal: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  header: { backgroundColor: PURPLE,    paddingTop: 0, paddingBottom: 14, paddingHorizontal: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   headerTitle: { color: '#fff', fontSize: 20, fontFamily: 'Inter_600SemiBold' },
   headerIcons: { flexDirection: 'row' },
   iconBtn: { marginLeft: 16 },

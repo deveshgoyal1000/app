@@ -1,38 +1,25 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Animated, StyleSheet } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
-
+import { View, Animated, StyleSheet, StatusBar } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useFonts, Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold } from '@expo-google-fonts/inter';
-
 import WatchlistScreen from './src/screens/WatchlistScreen';
 import PositionsScreen from './src/screens/PositionsScreen';
 import HoldingsScreen from './src/screens/HoldingsScreen';
 import FundsScreen from './src/screens/FundsScreen';
-
 const Tab = createBottomTabNavigator();
-
 export const FONT = {
   regular: 'Inter_400Regular',
   medium: 'Inter_500Medium',
   semiBold: 'Inter_600SemiBold',
   bold: 'Inter_700Bold',
 };
-
-function SafeAreaInsetsBlock() {
-  const insets = useSafeAreaInsets();
-  return <View style={{ height: Math.max(insets.top, 20), backgroundColor: '#ffffff', width: '100%', zIndex: 99999 }} />;
-}
-
 function CustomSplashScreen({ onFinish }: { onFinish: () => void }) {
   const scaleAnim = useRef(new Animated.Value(0.4)).current;
   const opacityAnim = useRef(new Animated.Value(0)).current;
-
   useEffect(() => {
     Animated.parallel([
       Animated.timing(scaleAnim, { toValue: 1, duration: 900, useNativeDriver: true }),
@@ -45,29 +32,20 @@ function CustomSplashScreen({ onFinish }: { onFinish: () => void }) {
       }, 1200);
     });
   }, []);
-
   return (
     <Animated.View style={[styles.splashContainer, { opacity: opacityAnim }]}>
       <Animated.Image source={require('./assets/real-icon.png')} style={[styles.splashImage, { transform: [{ scale: scaleAnim }] }]} resizeMode="contain" />
     </Animated.View>
   );
 }
-
 function MainApp() {
   const insets = useSafeAreaInsets();
-  
   // Explicitly calculate a thick bottom padding so it never hides behind the buttons
   const safeBottom = Math.max(insets.bottom, 20);
   const tabHeight = 50 + safeBottom;
-
   return (
     <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
-      {/* @ts-ignore */}
-      <StatusBar style="dark" backgroundColor="#ffffff" />
-      {/* Explicitly draw a solid white block exactly the height of the phone's hardware notch */}
-      <SafeAreaInsetsBlock />
-      
-      {/* Absolute top safe area block explicitly colored Teal */}
+      <StatusBar backgroundColor="#ffffff" barStyle="dark-content" translucent={false} />
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={({ route }) => ({
@@ -82,13 +60,13 @@ function MainApp() {
             tabBarActiveTintColor: '#56328c',
             tabBarInactiveTintColor: '#888',
             tabBarLabelStyle: { fontSize: 11, fontWeight: '600', marginBottom: 4 },
-            tabBarStyle: { 
-              paddingTop: 8, 
-              paddingBottom: safeBottom, 
-              height: tabHeight, 
-              backgroundColor: '#ffffff', 
-              borderTopWidth: 1, 
-              borderTopColor: '#f0f0f0' 
+            tabBarStyle: {
+              paddingTop: 8,
+              paddingBottom: safeBottom,
+              height: tabHeight,
+              backgroundColor: '#ffffff',
+              borderTopWidth: 1,
+              borderTopColor: '#f0f0f0',
             },
             headerShown: false,
           })}
@@ -102,22 +80,17 @@ function MainApp() {
     </View>
   );
 }
-
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
   const [fontsLoaded] = useFonts({
     Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold,
   });
-
   if (!fontsLoaded) return null;
-
   if (showSplash) {
     return (
       <SafeAreaProvider>
         <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
-          {/* @ts-ignore */}
-      <StatusBar style="dark" backgroundColor="#ffffff" />
-          <SafeAreaInsetsBlock />
+          <StatusBar backgroundColor="#ffffff" barStyle="dark-content" translucent={false} />
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <CustomSplashScreen onFinish={() => setShowSplash(false)} />
           </View>
@@ -125,7 +98,6 @@ export default function App() {
       </SafeAreaProvider>
     );
   }
-
   return (
     <GestureHandlerRootView style={{ flex: 1, backgroundColor: '#ffffff' }}>
       <SafeAreaProvider>
@@ -134,7 +106,6 @@ export default function App() {
     </GestureHandlerRootView>
   );
 }
-
 const styles = StyleSheet.create({
   splashContainer: { justifyContent: 'center', alignItems: 'center' },
   splashImage: { width: 180, height: 180, borderRadius: 20 }

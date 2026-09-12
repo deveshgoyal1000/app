@@ -29,7 +29,14 @@
                            },
                  "owner":  "deveshgoyal",
                  "plugins":  [
-                                 "expo-font"
+                                 "expo-font",
+                                 [
+                                   "expo-status-bar",
+                                   {
+                                     "style": "dark",
+                                     "backgroundColor": "#ffffff"
+                                   }
+                                 ]
                              ],
                  "splash":  {
                                 "backgroundColor":  "#ffffff"

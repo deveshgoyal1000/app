@@ -3,11 +3,11 @@ import React, { useState, useMemo, useEffect, useRef } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, TouchableOpacity,
   Modal, ActivityIndicator, TouchableWithoutFeedback,
-  PanResponder, Dimensions, StatusBar as RNStatusBar
+  PanResponder, Dimensions, StatusBar
 } from 'react-native';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { ToastAndroid, Platform, Alert } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Path, Line, Circle, Defs, LinearGradient, Stop } from 'react-native-svg';
 
 const BG_MAIN = '#ffffff';
@@ -431,7 +431,8 @@ Please trade between 9:15 AM - 3:30 PM`;
     toastChartRef.current?.show(msg);
   };
   return (
-    <View style={styles.screen}>
+    <SafeAreaView style={styles.screen}>
+        <StatusBar backgroundColor="#ffffff" barStyle="dark-content" translucent={false} />
 
             {/* Announcement Banner */}
       <TouchableOpacity style={[styles.holidayBanner, { paddingVertical: 12 }]}>
@@ -613,7 +614,6 @@ Please trade between 9:15 AM - 3:30 PM`;
 
       {/* ── Full Screen Chart Modal ── */}
       <Modal visible={!!chartStock} animationType="slide" statusBarTranslucent={true} onRequestClose={() => setChartStock(null)}>
-        <RNStatusBar barStyle="dark-content" backgroundColor="transparent" translucent={true} />
         <View style={{ flex: 1, backgroundColor: '#ffffff', paddingTop: Math.max(insets.top, 40) }}>
 
           {chartStock && (
@@ -688,7 +688,7 @@ Please trade between 9:15 AM - 3:30 PM`;
           </View>
         </Modal>
         <FastToast ref={toastMainRef} bottomOffset={100} />
-    </View>
+    </SafeAreaView>
   );
 }
 

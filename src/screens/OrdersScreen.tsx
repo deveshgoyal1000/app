@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Platform, StatusBar } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 
 const PURPLE = '#5B2D8E';
@@ -8,7 +9,8 @@ export default function OrdersScreen() {
   const [activeTab, setActiveTab] = useState('Open');
 
   return (
-    <View style={styles.screen}>
+    <SafeAreaView style={styles.screen}>
+      <StatusBar backgroundColor="#ffffff" barStyle="dark-content" translucent={false} />
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Trades</Text>
         <View style={styles.headerIcons}>
@@ -32,7 +34,7 @@ export default function OrdersScreen() {
         <Text style={styles.title}>No {activeTab.toLowerCase()} orders</Text>
         <Text style={styles.subtitle}>Place an order from the Watchlist</Text>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -40,7 +42,7 @@ const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: '#f4f4f8' },
   header: {
     backgroundColor: PURPLE,
-    paddingTop: Platform.OS === 'android' ? 16 : 50,
+    paddingTop: 0,
     paddingBottom: 14,
     paddingHorizontal: 16,
     flexDirection: 'row',
