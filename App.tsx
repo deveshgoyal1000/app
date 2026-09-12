@@ -63,7 +63,7 @@ function MainApp() {
   return (
     <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
       {/* @ts-ignore */}
-      <StatusBar style="dark" backgroundColor="transparent" />
+      <StatusBar style="dark" backgroundColor="#ffffff" />
       {/* Explicitly draw a solid white block exactly the height of the phone's hardware notch */}
       <SafeAreaInsetsBlock />
       
@@ -116,7 +116,7 @@ export default function App() {
       <SafeAreaProvider>
         <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
           {/* @ts-ignore */}
-      <StatusBar style="dark" backgroundColor="transparent" />
+      <StatusBar style="dark" backgroundColor="#ffffff" />
           <SafeAreaInsetsBlock />
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <CustomSplashScreen onFinish={() => setShowSplash(false)} />
