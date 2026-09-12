@@ -351,7 +351,7 @@ Please trade between 9:15 AM - 3:30 PM`);
           </View>
 
 
-          <View style={[styles.chartBottomBar, { paddingBottom: Math.max(systemBottomInset, 12) }]}>
+          <View style={[styles.chartBottomBar, { paddingBottom: systemBottomInset + 12 }]}>
             <TouchableOpacity style={[styles.chartActionBtn, { backgroundColor: '#0B8062' }]} onPress={() => showMarketClosed()}>
               <Text style={{ color: '#fff', fontFamily: 'Inter_600SemiBold' }}>BUY</Text>
             </TouchableOpacity>

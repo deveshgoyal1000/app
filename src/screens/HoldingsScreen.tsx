@@ -590,7 +590,7 @@ Please trade between 9:15 AM - 3:30 PM`;
                       </View>
                     ))}
                   </View>
-                  <View style={[styles.actionRow, { marginBottom: Math.max(systemBottomInset, 12) }]}>
+                  <View style={[styles.actionRow, { marginBottom: systemBottomInset + 12 }]}>
                     <TouchableOpacity style={[styles.actionBtn, { backgroundColor: GREEN }]} onPress={showMarketClosed}>
                       <Text style={styles.actionBtnText}>Buy</Text>
                     </TouchableOpacity>
@@ -676,7 +676,7 @@ Please trade between 9:15 AM - 3:30 PM`;
                 )}
               </View>
 
-              <View style={[styles.chartBottomBar, { paddingBottom: Math.max(systemBottomInset, 12) }]}>
+              <View style={[styles.chartBottomBar, { paddingBottom: systemBottomInset + 12 }]}>
                 <TouchableOpacity style={[styles.chartActionBtn, { backgroundColor: GREEN }]} onPress={showMarketClosed}>
                   <Text style={styles.actionBtnText}>Buy</Text>
                 </TouchableOpacity>
