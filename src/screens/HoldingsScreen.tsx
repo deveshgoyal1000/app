@@ -590,7 +590,7 @@ Please trade between 9:15 AM - 3:30 PM`;
                       </View>
                     ))}
                   </View>
-                  <View style={[styles.actionRow, { marginBottom: systemBottomInset + 12 }]}>
+                  <View style={styles.actionRow}>
                     <TouchableOpacity style={[styles.actionBtn, { backgroundColor: GREEN }]} onPress={showMarketClosed}>
                       <Text style={styles.actionBtnText}>Buy</Text>
                     </TouchableOpacity>
@@ -607,7 +607,7 @@ Please trade between 9:15 AM - 3:30 PM`;
                   </TouchableOpacity>
                 </>
               )}
-              <View style={{ height: 24 }} />
+              <View style={{ height: systemBottomInset + 24 }} />
             </View>
           </TouchableWithoutFeedback>
           <FastToast ref={toastSheetRef} bottomOffset={200} />
