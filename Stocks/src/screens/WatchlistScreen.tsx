@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, FlatList, TouchableOpacity, Platform, StatusBar
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import SharedChartModal from '../components/SharedChartModal';
-import SearchModal from '../components/SearchModal';
 const PURPLE = '#5B2D8E';
 const GREEN = '#0B8062';
 const RED = '#DA5329';
@@ -13,14 +12,13 @@ const stocksData = require('../../data/stocks.json');
 export default function WatchlistScreen() {
   const insets = useSafeAreaInsets();
   const [selectedStock, setSelectedStock] = useState<any>(null);
-  const [searchVisible, setSearchVisible] = useState(false);
 return (
     <View style={styles.screen}>
             {/* Announcement Banner */}
       <TouchableOpacity style={[styles.holidayBanner, { paddingVertical: 12 }]}>
         <Ionicons name="information-circle" size={20} color="#000" style={{ marginTop: 2, marginRight: 10 }} />
         <View style={{ flex: 1 }}>
-          <Text style={styles.holidayBannerText}>2 Oct is a trading holiday on account of Mahatma Gandhi Jayanti</Text>
+          <Text style={styles.holidayBannerText}>14 Sept is a trading holiday on account of Ganesh Chaturthi</Text>
         </View>
         <Text style={styles.knowMoreText}>Know more</Text>
       </TouchableOpacity>
@@ -38,7 +36,7 @@ return (
           <TouchableOpacity style={styles.iconBtn}>
             <Ionicons name="options-outline" size={22} color="#fff" />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.iconBtn} onPress={() => setSearchVisible(true)}>
+          <TouchableOpacity style={styles.iconBtn}>
             <Ionicons name="add-circle-outline" size={24} color="#fff" />
           </TouchableOpacity>
         </View>
@@ -97,11 +95,6 @@ return (
         )}
       />
       <SharedChartModal stock={selectedStock} onClose={() => setSelectedStock(null)} />
-      <SearchModal 
-        visible={searchVisible} 
-        onClose={() => setSearchVisible(false)}
-        onSelect={(stock) => setSelectedStock(stock)}
-      />
     </View>
   );
 }

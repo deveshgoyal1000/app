@@ -1,5 +1,4 @@
 import FastToast from '../components/FastToast';
-import SearchModal from '../components/SearchModal';
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, TouchableOpacity,
@@ -259,7 +258,6 @@ export default function HoldingsScreen() {
   const [activeTab, setActiveTab] = useState('Stocks');
   const [selectedStock, setSelectedStock] = useState<any>(null);
   const [chartStock, setChartStock] = useState<any>(null);
-  const [searchVisible, setSearchVisible] = useState(false);
   const [chartData, setChartData] = useState<{ c: number; time: string }[]>([]);
   const [chartLoading, setChartLoading] = useState(false);
   const [chartRange, setChartRange] = useState('1Y');
@@ -268,9 +266,9 @@ export default function HoldingsScreen() {
   const systemBottomInset = useSystemAndImeBottomInset();
   
               const rawHoldings = [
-    { id: '1', name: 'RAJESHEXPO', qty: 200, avg: 540.00,  ltp: 220.00, prevClose: 215.00 },
-    { id: '2', name: 'HDFCBANK',   qty: 100, avg: 1450.00, ltp: 1450.00, prevClose: 1440.00 },
-    { id: '3', name: 'SHRIRAMFIN', qty: 100, avg: 1030.00, ltp: 997.50, prevClose: 990.00 },
+    { id: '1', name: 'RAJESHEXPO', qty: 50,  avg: 540.00,  ltp: 220.00,  prevClose: 215.00 },
+    { id: '2', name: 'HDFCBANK',   qty: 80,  avg: 1450.00, ltp: 1125.00, prevClose: 1115.00 },
+    { id: '3', name: 'SHRIRAMFIN', qty: 100, avg: 1160.00, ltp: 950.00,  prevClose: 938.00 },
   ];
 
   const holdings = useMemo(() => rawHoldings.map(item => {
@@ -442,7 +440,7 @@ Please trade between 9:15 AM - 3:30 PM`;
       <TouchableOpacity style={[styles.holidayBanner, { paddingVertical: 12 }]}>
         <Ionicons name="information-circle" size={20} color="#000" style={{ marginTop: 2, marginRight: 10 }} />
         <View style={{ flex: 1 }}>
-          <Text style={styles.holidayBannerText}>2 Oct is a trading holiday on account of Mahatma Gandhi Jayanti</Text>
+          <Text style={styles.holidayBannerText}>14 Sept is a trading holiday on account of Ganesh Chaturthi</Text>
         </View>
         <Text style={styles.knowMoreText}>Know more</Text>
       </TouchableOpacity>
@@ -450,7 +448,7 @@ Please trade between 9:15 AM - 3:30 PM`;
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Holdings</Text>
-        <TouchableOpacity onPress={() => setSearchVisible(true)}><Ionicons name="search" size={22} color="#fff" /></TouchableOpacity>
+        <TouchableOpacity><Ionicons name="search" size={22} color="#fff" /></TouchableOpacity>
       </View>
 
       {/* Indices */}
@@ -692,14 +690,6 @@ Please trade between 9:15 AM - 3:30 PM`;
           </View>
         </Modal>
         <FastToast ref={toastMainRef} bottomOffset={100} />
-        <SearchModal 
-          visible={searchVisible} 
-          onClose={() => setSearchVisible(false)}
-          onSelect={(stock) => {
-            setChartRange('1D');
-            setChartStock(stock);
-          }}
-        />
     </View>
   );
 }

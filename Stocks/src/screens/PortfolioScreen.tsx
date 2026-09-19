@@ -2,24 +2,20 @@ import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Platform, StatusBar } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import SearchModal from '../components/SearchModal';
-import SharedChartModal from '../components/SharedChartModal';
 
 const PURPLE = '#5B2D8E';
 const GREEN = '#0B8062';
 const RED = '#DA5329';
 
 const holdings = [
-  { id: '1', name: 'RAJESHEXPO', exchange: 'NSE', qty: '200', pnl: '-64,000.00 (-59.25%)', pnlColor: RED, avg: '540.00 Avg.', ltp: '220.00 LTP', ltpColor: GREEN },
-  { id: '2', name: 'HDFCBANK', exchange: 'NSE', qty: '100', pnl: '0.00 (0.00%)', pnlColor: '#888', avg: '1450.00 Avg.', ltp: '1450.00 LTP', ltpColor: GREEN },
-  { id: '3', name: 'SHRIRAMFIN', exchange: 'NSE', qty: '100', pnl: '-3,250.00 (-3.15%)', pnlColor: RED, avg: '1030.00 Avg.', ltp: '997.50 LTP', ltpColor: GREEN },
+  { id: '1', name: 'PAYTM', exchange: 'NSE', qty: '100', pnl: '-60,000.00 (-60.0%)', pnlColor: RED, avg: '1000.00 Avg.', ltp: '400.00 LTP', ltpColor: RED },
+  { id: '2', name: 'HDFCBANK', exchange: 'NSE', qty: '100', pnl: '-30,000.00 (-20.0%)', pnlColor: RED, avg: '1500.00 Avg.', ltp: '1200.00 LTP', ltpColor: RED },
+  { id: '3', name: 'WIPRO', exchange: 'NSE', qty: '200', pnl: '-21,000.00 (-17.5%)', pnlColor: RED, avg: '600.00 Avg.', ltp: '495.00 LTP', ltpColor: RED },
 ];
 
 export default function PortfolioScreen() {
   const [activeTab, setActiveTab] = useState('Positions');
   const [activeFilter, setActiveFilter] = useState('Regular');
-  const [searchVisible, setSearchVisible] = useState(false);
-  const [chartStock, setChartStock] = useState<any>(null);
   
   const filters = ['Regular (0)', 'MTF (0)', 'Strategy (0)'];
 
@@ -33,7 +29,7 @@ export default function PortfolioScreen() {
           <TouchableOpacity style={styles.iconBtn}><Ionicons name="notifications-outline" size={22} color="#fff" /></TouchableOpacity>
           <TouchableOpacity style={styles.iconBtn}><Ionicons name="share-outline" size={22} color="#fff" /></TouchableOpacity>
           <TouchableOpacity style={styles.iconBtn}><Ionicons name="options-outline" size={22} color="#fff" /></TouchableOpacity>
-          <TouchableOpacity style={styles.iconBtn} onPress={() => setSearchVisible(true)}><Ionicons name="search-outline" size={22} color="#fff" /></TouchableOpacity>
+          <TouchableOpacity style={styles.iconBtn}><Ionicons name="search-outline" size={22} color="#fff" /></TouchableOpacity>
         </View>
       </View>
 
@@ -68,11 +64,11 @@ export default function PortfolioScreen() {
             <View style={styles.pnlRow}>
               <View>
                 <Text style={styles.pnlLabel}>Today's P&L</Text>
-                <Text style={[styles.pnlValueZero, { color: GREEN }]}>+7,250.00</Text>
+                <Text style={[styles.pnlValueZero, { color: '#111' }]}>0.00</Text>
               </View>
               <View style={{ alignItems: 'flex-end' }}>
                 <Text style={styles.pnlLabel}>Overall P&L</Text>
-                <Text style={[styles.pnlValueZero, { color: RED }]}>-67,250.00</Text>
+                <Text style={[styles.pnlValueZero, { color: '#111' }]}>0.00</Text>
               </View>
             </View>
 
@@ -88,15 +84,15 @@ export default function PortfolioScreen() {
             <View style={styles.summaryCard}>
               <View style={styles.summaryRow}>
                 <Text style={styles.summaryLabel}>Total Investment</Text>
-                <Text style={styles.summaryValue}>3,56,000.00</Text>
+                <Text style={styles.summaryValue}>3,62,000.00</Text>
               </View>
               <View style={styles.summaryRow}>
                 <Text style={styles.summaryLabel}>Current Value</Text>
-                <Text style={styles.summaryValue}>2,88,750.00</Text>
+                <Text style={styles.summaryValue}>3,02,000.00</Text>
               </View>
               <View style={[styles.summaryRow, styles.summaryDivider]}>
                 <Text style={styles.summaryLabel}>Total Returns</Text>
-                <Text style={[styles.summaryValue, { color: RED }]}>-67,250.00</Text>
+                <Text style={[styles.summaryValue, { color: RED }]}>-60,000.00</Text>
               </View>
             </View>
 
@@ -123,16 +119,6 @@ export default function PortfolioScreen() {
 
         <View style={{ height: 24 }} />
       </ScrollView>
-
-      <SearchModal 
-        visible={searchVisible} 
-        onClose={() => setSearchVisible(false)}
-        onSelect={(stock) => setChartStock(stock)}
-      />
-      <SharedChartModal 
-        stock={chartStock} 
-        onClose={() => setChartStock(null)} 
-      />
     </View>
   );
 }

@@ -1,0 +1,992 @@
+[
+  {
+    "id": "1",
+    "symbol": "RELIANCE",
+    "name": "RELIANCE INC",
+    "exchange": "NSE",
+    "price": 2204.51,
+    "change": -97.2,
+    "changePercentage": -4.22,
+    "isUp": false
+  },
+  {
+    "id": "2",
+    "symbol": "TCS",
+    "name": "TCS INC",
+    "exchange": "NSE",
+    "price": 1178.33,
+    "change": -18.69,
+    "changePercentage": -1.56,
+    "isUp": false
+  },
+  {
+    "id": "3",
+    "symbol": "HDFCBANK",
+    "name": "HDFCBANK INC",
+    "exchange": "NSE",
+    "price": 1793.81,
+    "change": -46.36,
+    "changePercentage": -2.52,
+    "isUp": false
+  },
+  {
+    "id": "4",
+    "symbol": "INFY",
+    "name": "INFY INC",
+    "exchange": "NSE",
+    "price": 1675.82,
+    "change": 2.78,
+    "changePercentage": 0.17,
+    "isUp": true
+  },
+  {
+    "id": "5",
+    "symbol": "ICICIBANK",
+    "name": "ICICIBANK INC",
+    "exchange": "NSE",
+    "price": 2464.32,
+    "change": -31.82,
+    "changePercentage": -1.27,
+    "isUp": false
+  },
+  {
+    "id": "6",
+    "symbol": "HUL",
+    "name": "HUL INC",
+    "exchange": "NSE",
+    "price": 1173.82,
+    "change": -55.94,
+    "changePercentage": -4.55,
+    "isUp": false
+  },
+  {
+    "id": "7",
+    "symbol": "ITC",
+    "name": "ITC INC",
+    "exchange": "NSE",
+    "price": 173.04,
+    "change": -0.9,
+    "changePercentage": -0.52,
+    "isUp": false
+  },
+  {
+    "id": "8",
+    "symbol": "SBIN",
+    "name": "SBIN INC",
+    "exchange": "NSE",
+    "price": 2375.46,
+    "change": 98.44,
+    "changePercentage": 4.32,
+    "isUp": true
+  },
+  {
+    "id": "9",
+    "symbol": "BHARTIARTL",
+    "name": "BHARTIARTL INC",
+    "exchange": "NSE",
+    "price": 2867.1,
+    "change": 71.55,
+    "changePercentage": 2.56,
+    "isUp": true
+  },
+  {
+    "id": "10",
+    "symbol": "KOTAKBANK",
+    "name": "KOTAKBANK INC",
+    "exchange": "NSE",
+    "price": 371.48,
+    "change": 11.06,
+    "changePercentage": 3.07,
+    "isUp": true
+  },
+  {
+    "id": "11",
+    "symbol": "L&T",
+    "name": "L&T INC",
+    "exchange": "NSE",
+    "price": 2446.76,
+    "change": 60.17,
+    "changePercentage": 2.52,
+    "isUp": true
+  },
+  {
+    "id": "12",
+    "symbol": "BAJFINANCE",
+    "name": "BAJFINANCE INC",
+    "exchange": "NSE",
+    "price": 923.7,
+    "change": -29.36,
+    "changePercentage": -3.08,
+    "isUp": false
+  },
+  {
+    "id": "13",
+    "symbol": "AXISBANK",
+    "name": "AXISBANK INC",
+    "exchange": "NSE",
+    "price": 2790.76,
+    "change": -121.09,
+    "changePercentage": -4.16,
+    "isUp": false
+  },
+  {
+    "id": "14",
+    "symbol": "ASIANPAINT",
+    "name": "ASIANPAINT INC",
+    "exchange": "NSE",
+    "price": 1615.47,
+    "change": -3.84,
+    "changePercentage": -0.24,
+    "isUp": false
+  },
+  {
+    "id": "15",
+    "symbol": "MARUTI",
+    "name": "MARUTI INC",
+    "exchange": "NSE",
+    "price": 2218.83,
+    "change": 54.79,
+    "changePercentage": 2.53,
+    "isUp": true
+  },
+  {
+    "id": "16",
+    "symbol": "HCLTECH",
+    "name": "HCLTECH INC",
+    "exchange": "NSE",
+    "price": 2283.81,
+    "change": 65.27,
+    "changePercentage": 2.94,
+    "isUp": true
+  },
+  {
+    "id": "17",
+    "symbol": "SUNPHARMA",
+    "name": "SUNPHARMA INC",
+    "exchange": "NSE",
+    "price": 709.4,
+    "change": 7.83,
+    "changePercentage": 1.12,
+    "isUp": true
+  },
+  {
+    "id": "18",
+    "symbol": "TITAN",
+    "name": "TITAN INC",
+    "exchange": "NSE",
+    "price": 798.44,
+    "change": 16.95,
+    "changePercentage": 2.17,
+    "isUp": true
+  },
+  {
+    "id": "19",
+    "symbol": "ULTRACEMCO",
+    "name": "ULTRACEMCO INC",
+    "exchange": "NSE",
+    "price": 2019.72,
+    "change": 26.99,
+    "changePercentage": 1.35,
+    "isUp": true
+  },
+  {
+    "id": "20",
+    "symbol": "WIPRO",
+    "name": "WIPRO INC",
+    "exchange": "NSE",
+    "price": 843.38,
+    "change": 29.81,
+    "changePercentage": 3.66,
+    "isUp": true
+  },
+  {
+    "id": "21",
+    "symbol": "BAJAJFINSV",
+    "name": "BAJAJFINSV INC",
+    "exchange": "NSE",
+    "price": 2882.36,
+    "change": 4.64,
+    "changePercentage": 0.16,
+    "isUp": true
+  },
+  {
+    "id": "22",
+    "symbol": "NESTLEIND",
+    "name": "NESTLEIND INC",
+    "exchange": "NSE",
+    "price": 1257.76,
+    "change": -39.68,
+    "changePercentage": -3.06,
+    "isUp": false
+  },
+  {
+    "id": "23",
+    "symbol": "ONGC",
+    "name": "ONGC INC",
+    "exchange": "NSE",
+    "price": 2574.02,
+    "change": 37.4,
+    "changePercentage": 1.47,
+    "isUp": true
+  },
+  {
+    "id": "24",
+    "symbol": "TECHM",
+    "name": "TECHM INC",
+    "exchange": "NSE",
+    "price": 2340.48,
+    "change": -113.77,
+    "changePercentage": -4.64,
+    "isUp": false
+  },
+  {
+    "id": "25",
+    "symbol": "TATASTEEL",
+    "name": "TATASTEEL INC",
+    "exchange": "NSE",
+    "price": 731.45,
+    "change": 33.24,
+    "changePercentage": 4.76,
+    "isUp": true
+  },
+  {
+    "id": "26",
+    "symbol": "POWERGRID",
+    "name": "POWERGRID INC",
+    "exchange": "NSE",
+    "price": 1326.44,
+    "change": -36.08,
+    "changePercentage": -2.65,
+    "isUp": false
+  },
+  {
+    "id": "27",
+    "symbol": "M&M",
+    "name": "M&M INC",
+    "exchange": "NSE",
+    "price": 1493.55,
+    "change": -7.58,
+    "changePercentage": -0.5,
+    "isUp": false
+  },
+  {
+    "id": "28",
+    "symbol": "HINDALCO",
+    "name": "HINDALCO INC",
+    "exchange": "NSE",
+    "price": 980.76,
+    "change": 18.67,
+    "changePercentage": 1.94,
+    "isUp": true
+  },
+  {
+    "id": "29",
+    "symbol": "NTPC",
+    "name": "NTPC INC",
+    "exchange": "NSE",
+    "price": 2646.87,
+    "change": 5.6,
+    "changePercentage": 0.21,
+    "isUp": true
+  },
+  {
+    "id": "30",
+    "symbol": "GRASIM",
+    "name": "GRASIM INC",
+    "exchange": "NSE",
+    "price": 1835.74,
+    "change": 63.42,
+    "changePercentage": 3.58,
+    "isUp": true
+  },
+  {
+    "id": "31",
+    "symbol": "JSWSTEEL",
+    "name": "JSWSTEEL INC",
+    "exchange": "NSE",
+    "price": 1065.23,
+    "change": -41.37,
+    "changePercentage": -3.74,
+    "isUp": false
+  },
+  {
+    "id": "32",
+    "symbol": "COALINDIA",
+    "name": "COALINDIA INC",
+    "exchange": "NSE",
+    "price": 2117.99,
+    "change": 49.41,
+    "changePercentage": 2.39,
+    "isUp": true
+  },
+  {
+    "id": "33",
+    "symbol": "INDUSINDBK",
+    "name": "INDUSINDBK INC",
+    "exchange": "NSE",
+    "price": 458.07,
+    "change": 17.12,
+    "changePercentage": 3.88,
+    "isUp": true
+  },
+  {
+    "id": "34",
+    "symbol": "ADANIPORTS",
+    "name": "ADANIPORTS INC",
+    "exchange": "NSE",
+    "price": 1419.16,
+    "change": 63.77,
+    "changePercentage": 4.7,
+    "isUp": true
+  },
+  {
+    "id": "35",
+    "symbol": "DIVISLAB",
+    "name": "DIVISLAB INC",
+    "exchange": "NSE",
+    "price": 1510.07,
+    "change": -3.84,
+    "changePercentage": -0.25,
+    "isUp": false
+  },
+  {
+    "id": "36",
+    "symbol": "BAJAJ-AUTO",
+    "name": "BAJAJ-AUTO INC",
+    "exchange": "NSE",
+    "price": 2563.67,
+    "change": -77.54,
+    "changePercentage": -2.94,
+    "isUp": false
+  },
+  {
+    "id": "37",
+    "symbol": "TATAMOTORS",
+    "name": "TATAMOTORS INC",
+    "exchange": "NSE",
+    "price": 1003.89,
+    "change": 4.49,
+    "changePercentage": 0.45,
+    "isUp": true
+  },
+  {
+    "id": "38",
+    "symbol": "HDFCLIFE",
+    "name": "HDFCLIFE INC",
+    "exchange": "NSE",
+    "price": 1248.05,
+    "change": 40.25,
+    "changePercentage": 3.33,
+    "isUp": true
+  },
+  {
+    "id": "39",
+    "symbol": "CIPLA",
+    "name": "CIPLA INC",
+    "exchange": "NSE",
+    "price": 2389.66,
+    "change": 11.62,
+    "changePercentage": 0.49,
+    "isUp": true
+  },
+  {
+    "id": "40",
+    "symbol": "UPL",
+    "name": "UPL INC",
+    "exchange": "NSE",
+    "price": 482.57,
+    "change": -7.79,
+    "changePercentage": -1.59,
+    "isUp": false
+  },
+  {
+    "id": "41",
+    "symbol": "BRITANNIA",
+    "name": "BRITANNIA INC",
+    "exchange": "NSE",
+    "price": 856.34,
+    "change": 11.29,
+    "changePercentage": 1.34,
+    "isUp": true
+  },
+  {
+    "id": "42",
+    "symbol": "HEROMOTOCO",
+    "name": "HEROMOTOCO INC",
+    "exchange": "NSE",
+    "price": 1341.9,
+    "change": -5.86,
+    "changePercentage": -0.43,
+    "isUp": false
+  },
+  {
+    "id": "43",
+    "symbol": "APOLLOHOSP",
+    "name": "APOLLOHOSP INC",
+    "exchange": "NSE",
+    "price": 2790.44,
+    "change": 48.8,
+    "changePercentage": 1.78,
+    "isUp": true
+  },
+  {
+    "id": "44",
+    "symbol": "EICHERMOT",
+    "name": "EICHERMOT INC",
+    "exchange": "NSE",
+    "price": 2058.94,
+    "change": -94.37,
+    "changePercentage": -4.38,
+    "isUp": false
+  },
+  {
+    "id": "45",
+    "symbol": "SHREECEM",
+    "name": "SHREECEM INC",
+    "exchange": "NSE",
+    "price": 2474.06,
+    "change": 62.85,
+    "changePercentage": 2.61,
+    "isUp": true
+  },
+  {
+    "id": "46",
+    "symbol": "BPCL",
+    "name": "BPCL INC",
+    "exchange": "NSE",
+    "price": 744.21,
+    "change": -0.95,
+    "changePercentage": -0.13,
+    "isUp": false
+  },
+  {
+    "id": "47",
+    "symbol": "DRREDDY",
+    "name": "DRREDDY INC",
+    "exchange": "NSE",
+    "price": 1737.92,
+    "change": 33.58,
+    "changePercentage": 1.97,
+    "isUp": true
+  },
+  {
+    "id": "48",
+    "symbol": "TATACONSUM",
+    "name": "TATACONSUM INC",
+    "exchange": "NSE",
+    "price": 1905.02,
+    "change": -41.13,
+    "changePercentage": -2.11,
+    "isUp": false
+  },
+  {
+    "id": "49",
+    "symbol": "SBILIFE",
+    "name": "SBILIFE INC",
+    "exchange": "NSE",
+    "price": 1424.76,
+    "change": -50.34,
+    "changePercentage": -3.41,
+    "isUp": false
+  },
+  {
+    "id": "50",
+    "symbol": "MARICO",
+    "name": "MARICO INC",
+    "exchange": "NSE",
+    "price": 1289.19,
+    "change": -18.69,
+    "changePercentage": -1.43,
+    "isUp": false
+  },
+  {
+    "id": "51",
+    "symbol": "DABUR",
+    "name": "DABUR INC",
+    "exchange": "NSE",
+    "price": 826.92,
+    "change": 27.11,
+    "changePercentage": 3.39,
+    "isUp": true
+  },
+  {
+    "id": "52",
+    "symbol": "GODREJCP",
+    "name": "GODREJCP INC",
+    "exchange": "NSE",
+    "price": 775.08,
+    "change": 9.33,
+    "changePercentage": 1.22,
+    "isUp": true
+  },
+  {
+    "id": "53",
+    "symbol": "PIDILITIND",
+    "name": "PIDILITIND INC",
+    "exchange": "NSE",
+    "price": 730.74,
+    "change": 17.63,
+    "changePercentage": 2.47,
+    "isUp": true
+  },
+  {
+    "id": "54",
+    "symbol": "HAVELLS",
+    "name": "HAVELLS INC",
+    "exchange": "NSE",
+    "price": 1621.92,
+    "change": -51.21,
+    "changePercentage": -3.06,
+    "isUp": false
+  },
+  {
+    "id": "55",
+    "symbol": "INDIGO",
+    "name": "INDIGO INC",
+    "exchange": "NSE",
+    "price": 86.63,
+    "change": -1.04,
+    "changePercentage": -1.18,
+    "isUp": false
+  },
+  {
+    "id": "56",
+    "symbol": "SIEMENS",
+    "name": "SIEMENS INC",
+    "exchange": "NSE",
+    "price": 72.85,
+    "change": -1.91,
+    "changePercentage": -2.56,
+    "isUp": false
+  },
+  {
+    "id": "57",
+    "symbol": "ICICIGI",
+    "name": "ICICIGI INC",
+    "exchange": "NSE",
+    "price": 2154.79,
+    "change": 47.21,
+    "changePercentage": 2.24,
+    "isUp": true
+  },
+  {
+    "id": "58",
+    "symbol": "TORNTPHARM",
+    "name": "TORNTPHARM INC",
+    "exchange": "NSE",
+    "price": 2673.03,
+    "change": 120.36,
+    "changePercentage": 4.71,
+    "isUp": true
+  },
+  {
+    "id": "59",
+    "symbol": "AMBUJACEM",
+    "name": "AMBUJACEM INC",
+    "exchange": "NSE",
+    "price": 2222.04,
+    "change": -73.25,
+    "changePercentage": -3.19,
+    "isUp": false
+  },
+  {
+    "id": "60",
+    "symbol": "VOLTAS",
+    "name": "VOLTAS INC",
+    "exchange": "NSE",
+    "price": 2894.68,
+    "change": 133.11,
+    "changePercentage": 4.82,
+    "isUp": true
+  },
+  {
+    "id": "61",
+    "symbol": "MUTHOOTFIN",
+    "name": "MUTHOOTFIN INC",
+    "exchange": "NSE",
+    "price": 969.27,
+    "change": 29.27,
+    "changePercentage": 3.11,
+    "isUp": true
+  },
+  {
+    "id": "62",
+    "symbol": "PFC",
+    "name": "PFC INC",
+    "exchange": "NSE",
+    "price": 1122.71,
+    "change": 49.92,
+    "changePercentage": 4.65,
+    "isUp": true
+  },
+  {
+    "id": "63",
+    "symbol": "RECLTD",
+    "name": "RECLTD INC",
+    "exchange": "NSE",
+    "price": 2908.13,
+    "change": 32.46,
+    "changePercentage": 1.13,
+    "isUp": true
+  },
+  {
+    "id": "64",
+    "symbol": "GAIL",
+    "name": "GAIL INC",
+    "exchange": "NSE",
+    "price": 2543,
+    "change": 38.87,
+    "changePercentage": 1.55,
+    "isUp": true
+  },
+  {
+    "id": "65",
+    "symbol": "DLF",
+    "name": "DLF INC",
+    "exchange": "NSE",
+    "price": 1435.44,
+    "change": -18.19,
+    "changePercentage": -1.25,
+    "isUp": false
+  },
+  {
+    "id": "66",
+    "symbol": "BHEL",
+    "name": "BHEL INC",
+    "exchange": "NSE",
+    "price": 2587.39,
+    "change": -55.85,
+    "changePercentage": -2.11,
+    "isUp": false
+  },
+  {
+    "id": "67",
+    "symbol": "BEL",
+    "name": "BEL INC",
+    "exchange": "NSE",
+    "price": 1349.89,
+    "change": -39.82,
+    "changePercentage": -2.87,
+    "isUp": false
+  },
+  {
+    "id": "68",
+    "symbol": "HAL",
+    "name": "HAL INC",
+    "exchange": "NSE",
+    "price": 2885.18,
+    "change": -6.89,
+    "changePercentage": -0.24,
+    "isUp": false
+  },
+  {
+    "id": "69",
+    "symbol": "IRCTC",
+    "name": "IRCTC INC",
+    "exchange": "NSE",
+    "price": 2852.27,
+    "change": -147.92,
+    "changePercentage": -4.93,
+    "isUp": false
+  },
+  {
+    "id": "70",
+    "symbol": "ZEEL",
+    "name": "ZEEL INC",
+    "exchange": "NSE",
+    "price": 817.22,
+    "change": -20.08,
+    "changePercentage": -2.4,
+    "isUp": false
+  },
+  {
+    "id": "71",
+    "symbol": "PNB",
+    "name": "PNB INC",
+    "exchange": "NSE",
+    "price": 327.69,
+    "change": -7.74,
+    "changePercentage": -2.31,
+    "isUp": false
+  },
+  {
+    "id": "72",
+    "symbol": "BANKBARODA",
+    "name": "BANKBARODA INC",
+    "exchange": "NSE",
+    "price": 274.74,
+    "change": 10.83,
+    "changePercentage": 4.1,
+    "isUp": true
+  },
+  {
+    "id": "73",
+    "symbol": "CANBK",
+    "name": "CANBK INC",
+    "exchange": "NSE",
+    "price": 1802.76,
+    "change": 32.21,
+    "changePercentage": 1.82,
+    "isUp": true
+  },
+  {
+    "id": "74",
+    "symbol": "UNIONBANK",
+    "name": "UNIONBANK INC",
+    "exchange": "NSE",
+    "price": 2895.93,
+    "change": -36.03,
+    "changePercentage": -1.23,
+    "isUp": false
+  },
+  {
+    "id": "75",
+    "symbol": "IDFCFIRSTB",
+    "name": "IDFCFIRSTB INC",
+    "exchange": "NSE",
+    "price": 1093.44,
+    "change": 28.34,
+    "changePercentage": 2.66,
+    "isUp": true
+  },
+  {
+    "id": "76",
+    "symbol": "BANDHANBNK",
+    "name": "BANDHANBNK INC",
+    "exchange": "NSE",
+    "price": 657.2,
+    "change": -0.45,
+    "changePercentage": -0.07,
+    "isUp": false
+  },
+  {
+    "id": "77",
+    "symbol": "AUBANK",
+    "name": "AUBANK INC",
+    "exchange": "NSE",
+    "price": 2840.63,
+    "change": -95.68,
+    "changePercentage": -3.26,
+    "isUp": false
+  },
+  {
+    "id": "78",
+    "symbol": "MOTHERSON",
+    "name": "MOTHERSON INC",
+    "exchange": "NSE",
+    "price": 1206.78,
+    "change": -47.72,
+    "changePercentage": -3.8,
+    "isUp": false
+  },
+  {
+    "id": "79",
+    "symbol": "TVSMOTOR",
+    "name": "TVSMOTOR INC",
+    "exchange": "NSE",
+    "price": 1262.51,
+    "change": -25.48,
+    "changePercentage": -1.98,
+    "isUp": false
+  },
+  {
+    "id": "80",
+    "symbol": "ASHOKLEY",
+    "name": "ASHOKLEY INC",
+    "exchange": "NSE",
+    "price": 2803.91,
+    "change": 114.42,
+    "changePercentage": 4.25,
+    "isUp": true
+  },
+  {
+    "id": "81",
+    "symbol": "ESCORTS",
+    "name": "ESCORTS INC",
+    "exchange": "NSE",
+    "price": 1826.51,
+    "change": -26.69,
+    "changePercentage": -1.44,
+    "isUp": false
+  },
+  {
+    "id": "82",
+    "symbol": "BOSCHLTD",
+    "name": "BOSCHLTD INC",
+    "exchange": "NSE",
+    "price": 2674.03,
+    "change": -90.96,
+    "changePercentage": -3.29,
+    "isUp": false
+  },
+  {
+    "id": "83",
+    "symbol": "MRF",
+    "name": "MRF INC",
+    "exchange": "NSE",
+    "price": 2176.34,
+    "change": -30.61,
+    "changePercentage": -1.39,
+    "isUp": false
+  },
+  {
+    "id": "84",
+    "symbol": "APOLLOTYRE",
+    "name": "APOLLOTYRE INC",
+    "exchange": "NSE",
+    "price": 1236.1,
+    "change": -24.47,
+    "changePercentage": -1.94,
+    "isUp": false
+  },
+  {
+    "id": "85",
+    "symbol": "CEATLTD",
+    "name": "CEATLTD INC",
+    "exchange": "NSE",
+    "price": 181.3,
+    "change": 4.03,
+    "changePercentage": 2.27,
+    "isUp": true
+  },
+  {
+    "id": "86",
+    "symbol": "PIIND",
+    "name": "PIIND INC",
+    "exchange": "NSE",
+    "price": 573.95,
+    "change": 5.99,
+    "changePercentage": 1.06,
+    "isUp": true
+  },
+  {
+    "id": "87",
+    "symbol": "COROMANDEL",
+    "name": "COROMANDEL INC",
+    "exchange": "NSE",
+    "price": 2958.02,
+    "change": -80.69,
+    "changePercentage": -2.66,
+    "isUp": false
+  },
+  {
+    "id": "88",
+    "symbol": "TATACHEM",
+    "name": "TATACHEM INC",
+    "exchange": "NSE",
+    "price": 816.08,
+    "change": 24.85,
+    "changePercentage": 3.14,
+    "isUp": true
+  },
+  {
+    "id": "89",
+    "symbol": "DEEPAKNTR",
+    "name": "DEEPAKNTR INC",
+    "exchange": "NSE",
+    "price": 1829.66,
+    "change": 42.92,
+    "changePercentage": 2.4,
+    "isUp": true
+  },
+  {
+    "id": "90",
+    "symbol": "SRF",
+    "name": "SRF INC",
+    "exchange": "NSE",
+    "price": 538.97,
+    "change": 2.61,
+    "changePercentage": 0.49,
+    "isUp": true
+  },
+  {
+    "id": "91",
+    "symbol": "NAVINFLUOR",
+    "name": "NAVINFLUOR INC",
+    "exchange": "NSE",
+    "price": 476.15,
+    "change": -24.32,
+    "changePercentage": -4.86,
+    "isUp": false
+  },
+  {
+    "id": "92",
+    "symbol": "AARTIIND",
+    "name": "AARTIIND INC",
+    "exchange": "NSE",
+    "price": 319.14,
+    "change": -14,
+    "changePercentage": -4.2,
+    "isUp": false
+  },
+  {
+    "id": "93",
+    "symbol": "GUJGASLTD",
+    "name": "GUJGASLTD INC",
+    "exchange": "NSE",
+    "price": 2963.33,
+    "change": 59.01,
+    "changePercentage": 2.03,
+    "isUp": true
+  },
+  {
+    "id": "94",
+    "symbol": "MGL",
+    "name": "MGL INC",
+    "exchange": "NSE",
+    "price": 3043.32,
+    "change": 133.11,
+    "changePercentage": 4.57,
+    "isUp": true
+  },
+  {
+    "id": "95",
+    "symbol": "IGL",
+    "name": "IGL INC",
+    "exchange": "NSE",
+    "price": 1174.41,
+    "change": -35.43,
+    "changePercentage": -2.93,
+    "isUp": false
+  },
+  {
+    "id": "96",
+    "symbol": "PETRONET",
+    "name": "PETRONET INC",
+    "exchange": "NSE",
+    "price": 2890.67,
+    "change": -94.26,
+    "changePercentage": -3.16,
+    "isUp": false
+  },
+  {
+    "id": "97",
+    "symbol": "CONCOR",
+    "name": "CONCOR INC",
+    "exchange": "NSE",
+    "price": 1198.93,
+    "change": -7.49,
+    "changePercentage": -0.62,
+    "isUp": false
+  },
+  {
+    "id": "98",
+    "symbol": "PEL",
+    "name": "PEL INC",
+    "exchange": "NSE",
+    "price": 1145.07,
+    "change": 32.11,
+    "changePercentage": 2.88,
+    "isUp": true
+  },
+  {
+    "id": "99",
+    "symbol": "BIOCON",
+    "name": "BIOCON INC",
+    "exchange": "NSE",
+    "price": 904.04,
+    "change": 34.53,
+    "changePercentage": 3.97,
+    "isUp": true
+  }
+]
